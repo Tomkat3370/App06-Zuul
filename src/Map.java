@@ -15,7 +15,8 @@ public class Map
      */
     private void createRooms()
     {
-        Room intracranialSpace, frontalLobe, concentrationCentre, writingCenter, olfactoryCenter parietalLobe, temporalLobe, occipitalLobe, cerebellum;
+        Room intracranialSpace, frontalLobe, concentrationCentre, writingCenter, olfactoryCenter, parietalLobe,
+                temporalLobe, occipitalLobe, cerebellum;
 
         // create the rooms
         intracranialSpace = new Room("outside the brain");
@@ -29,20 +30,20 @@ public class Map
         cerebellum = new Room("in the voluntary movement coordinator");
 
         // initialise room exits
-        outside.setExit("east", theater);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
+        intracranialSpace.setExit("east", frontalLobe);
+        intracranialSpace.setExit("south", parietalLobe);
+        intracranialSpace.setExit("west", temporalLobe);
 
-        theater.setExit("west", outside);
+        frontalLobe.setExit("west", intracranialSpace);
 
-        pub.setExit("east", outside);
+        temporalLobe.setExit("east", intracranialSpace);
 
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
+        parietalLobe.setExit("north", intracranialSpace);
+        parietalLobe.setExit("east", olfactoryCenter);
 
-        office.setExit("west", lab);
+        olfactoryCenter.setExit("west", parietalLobe);
 
-        startRoom = outside;  // start game outside
+        startRoom = intracranialSpace;  // start game outside
     }
 
     public Room getStartRoom()
