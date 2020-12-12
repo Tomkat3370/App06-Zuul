@@ -18,6 +18,8 @@ import java.util.Iterator;
 
 public class Room 
 {
+    //Room names constants
+    private Items item;
     private String description;
     // String is the key to a room in that direction
     // east would be an exit that goes to the Room
@@ -44,6 +46,8 @@ public class Room
     {
         exits.put(direction, neighbor);
     }
+
+    // method for getName
 
     /**
      * @return The short description of the room
