@@ -62,6 +62,7 @@ public class Game
      */
     private void printWelcome()
     {
+        //TODO: Add Instructions and Player Starting Status to print method
         System.out.println();
         System.out.println("Welcome to the World of Zuul!");
         System.out.println("World of Zuul is a new, incredibly boring adventure game.");
@@ -80,7 +81,7 @@ public class Game
         boolean wantToQuit = false;
 
         CommandWord commandWord = command.getCommandWord();
-
+// TODO: Add new commands
         switch (commandWord) 
         {
             case UNKNOWN:
@@ -111,6 +112,7 @@ public class Game
      */
     private void printHelp() 
     {
+        //TODO: Add Game Goal
         System.out.println("You are lost. You are alone. You wander");
         System.out.println("around at the university.");
         System.out.println();
@@ -144,6 +146,8 @@ public class Game
             System.out.println(currentRoom.getLongDescription());
         }
     }
+
+    //TODO: Add restart/reset command
 
     /** 
      * "Quit" was entered. Check the rest of the command to see

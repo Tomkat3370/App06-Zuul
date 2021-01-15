@@ -19,6 +19,7 @@ public class Map
                 temporalLobe, occipitalLobe, cerebellum;
 
         // create the rooms
+        // TODO: Split methos to primary and secondary rooms
         intracranialSpace = new Room("outside the brain");
         frontalLobe = new Room("in the control panel of personality and communication");
         concentrationCentre = new Room("in the concentration, planning and problem solver");

@@ -1,4 +1,4 @@
 public enum Items
 {
-    BOOK, WATER, TABLET, KEY, CALCULATOR
+    //TODO: Create Key fragments and items.... class might work better??
 }
