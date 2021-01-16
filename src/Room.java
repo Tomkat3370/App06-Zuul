@@ -16,9 +16,9 @@ import java.util.Iterator;
  * @version 2016.02.29
  */
 
-public class Room 
+public class Room
 {
-    //Room names constants
+    private String roomName;
     private Items item;
     private String description;
     // String is the key to a room in that direction
@@ -31,10 +31,11 @@ public class Room
      * "an open court yard".
      * @param description The room's description.
      */
-    public Room(String description) 
+    public Room(String description)
     {
         this.description = description;
         exits = new HashMap<>();
+        roomName = null;
     }
 
     /**
@@ -48,6 +49,19 @@ public class Room
     }
 
     // method for getName
+    /**
+     * @return The name of the room
+     */
+    public String getName()
+        {
+            return roomName();
+        }
+
+    private String roomName()
+    {
+        roomName = Map
+    }
+
 
     /**
      * @return The short description of the room

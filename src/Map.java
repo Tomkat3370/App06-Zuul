@@ -18,28 +18,33 @@ public class Map
         Room intracranialSpace, frontalLobe, concentrationCentre, writingCenter, olfactoryCenter, parietalLobe,
                 temporalLobe, occipitalLobe, cerebellum;
 
-        // create the rooms
-        // TODO: Split methos to primary and secondary rooms
+        // create the primary rooms
+        // TODO: Split method to primary and secondary rooms
         intracranialSpace = new Room("outside the brain");
         frontalLobe = new Room("in the control panel of personality and communication");
-        concentrationCentre = new Room("in the concentration, planning and problem solver");
-        writingCenter = new Room("in the writing room");
-        olfactoryCenter = new Room("in the smell recognition room");
         parietalLobe = new Room("in the physical sensory processor");
         temporalLobe = new Room("in the auditory and emotion interpreter/memory creator");
         occipitalLobe = new Room("in the visual interpreter");
         cerebellum = new Room("in the voluntary movement coordinator");
 
+        //create secondary rooms
+        concentrationCentre = new Room("in the concentration, planning and problem solver");
+        writingCenter = new Room("in the writing room");
+        olfactoryCenter = new Room("in the smell recognition room");
+
         // initialise room exits
         intracranialSpace.setExit("east", frontalLobe);
         intracranialSpace.setExit("south", parietalLobe);
         intracranialSpace.setExit("west", temporalLobe);
+        intracranialSpace.setExit("north", occipitalLobe);
+        intracranialSpace.setExit("northWest", cerebellum);
 
         frontalLobe.setExit("west", intracranialSpace);
-
         temporalLobe.setExit("east", intracranialSpace);
-
         parietalLobe.setExit("north", intracranialSpace);
+        occipitalLobe.setExit("west", intracranialSpace);
+        cerebellum.setExit("southEast", intracranialSpace);
+
         parietalLobe.setExit("east", olfactoryCenter);
 
         olfactoryCenter.setExit("west", parietalLobe);
