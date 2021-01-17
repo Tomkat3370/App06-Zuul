@@ -48,20 +48,7 @@ public class Room
         exits.put(direction, neighbor);
     }
 
-    // method for getName
-    /**
-     * @return The name of the room
-     */
-    public String getName()
-        {
-            return roomName();
-        }
-
-    private String roomName()
-    {
-        roomName = Map;
-    }
-
+    // TODO method for getName
 
     /**
      * @return The short description of the room

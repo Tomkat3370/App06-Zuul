@@ -55,8 +55,6 @@ public class Game
         System.out.println("Thank you for playing.  Good bye.");
     }
 
-
-
     /**
      * Print out the opening message for the player.
      */
