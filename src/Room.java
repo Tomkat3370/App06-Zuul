@@ -59,7 +59,7 @@ public class Room
 
     private String roomName()
     {
-        roomName = Map
+        roomName = Map;
     }
 
 
