@@ -60,10 +60,10 @@ public class Map
         frontalLobe.setExit("right", olfactoryCentre);
 
         concentrationCentre.setExit("back", frontalLobe);
-        writingCentre.setExit("back", writingCentre);
+        writingCentre.setExit("back", frontalLobe);
         olfactoryCentre.setExit("back", frontalLobe);
 
-        temporalLobe.setExit("backward", intracranialSpace);
+        temporalLobe.setExit("back", intracranialSpace);
         temporalLobe.setExit("forward", hearingCentre);
         temporalLobe.setExit("left", memoryCentre);
         temporalLobe.setExit("right", musicCentre);
@@ -72,7 +72,7 @@ public class Map
         memoryCentre.setExit("back", temporalLobe);
         musicCentre.setExit("back", temporalLobe);
 
-        parietalLobe.setExit("backward", intracranialSpace);
+        parietalLobe.setExit("back", intracranialSpace);
         parietalLobe.setExit("forward", touchCentre);
         parietalLobe.setExit("left", tasteCentre);
         parietalLobe.setExit("right", puzzleCentre);
@@ -81,14 +81,14 @@ public class Map
         tasteCentre.setExit("back", parietalLobe);
         puzzleCentre.setExit("back", parietalLobe);
 
-        occipitalLobe.setExit("backward", intracranialSpace);
+        occipitalLobe.setExit("back", intracranialSpace);
         occipitalLobe.setExit("left", visionCentre);
         occipitalLobe.setExit("right", readingCentre);
 
         visionCentre.setExit("back", occipitalLobe);
         readingCentre.setExit("back", occipitalLobe);
 
-        cerebellum.setExit("backward", intracranialSpace);
+        cerebellum.setExit("back", intracranialSpace);
 
             startRoom = intracranialSpace;  // start game outside
     }
