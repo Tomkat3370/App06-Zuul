@@ -11,12 +11,12 @@ public class Map
     }
 
     /**
-     * Create all the rooms and link their exits together.
+     * Create all the primary rooms and link their exits together.
      */
     private void createRooms()
     {
-        Room intracranialSpace, frontalLobe, concentrationCentre, writingCenter, olfactoryCenter, parietalLobe,
-                temporalLobe, occipitalLobe, cerebellum;
+        Room intracranialSpace, frontalLobe,parietalLobe, temporalLobe, occipitalLobe, cerebellum, concentrationCentre, writingCentre, olfactoryCentre, hearingCentre, memoryCentre, musicCentre,
+                touchCentre, tasteCentre, puzzleCentre, visionCentre, readingCentre;
 
         // create the primary rooms
         // TODO: Split method to primary and secondary rooms
@@ -27,35 +27,62 @@ public class Map
         occipitalLobe = new Room("in the visual interpreter");
         cerebellum = new Room("in the voluntary movement coordinator");
 
-        //create secondary rooms
+        //Rooms inside frontalLobe
         concentrationCentre = new Room("in the concentration, planning and problem solver");
-        writingCenter = new Room("in the writing room");
-        olfactoryCenter = new Room("in the smell recognition room");
+        writingCentre = new Room("in the writing room");
+        olfactoryCentre = new Room("in the smell recognition room");
+
+        //Rooms inside temporalLobe
+        hearingCentre = new Room("in the hearing room");
+        memoryCentre = new Room("in the memories room");
+        musicCentre = new Room("in the music room");
+
+        //Rooms inside parietalLobe
+        touchCentre = new Room("in the touch room");
+        tasteCentre = new Room("in the tasting room");
+        puzzleCentre = new Room("in the puzzle room");
+
+        //Rooms inside occipitalLobe
+        visionCentre = new Room("in the vision room");
+        readingCentre = new Room("in the reading room");
 
         // initialise room exits
-        intracranialSpace.setExit("east", frontalLobe);
-        intracranialSpace.setExit("south", parietalLobe);
-        intracranialSpace.setExit("west", temporalLobe);
-        intracranialSpace.setExit("north", occipitalLobe);
-        intracranialSpace.setExit("northWest", cerebellum);
+        intracranialSpace.setExit("forward", frontalLobe);
+        intracranialSpace.setExit("left", parietalLobe);
+        intracranialSpace.setExit("right", temporalLobe);
+        intracranialSpace.setExit("up", occipitalLobe);
+        intracranialSpace.setExit("down", cerebellum);
 
-        frontalLobe.setExit("west", intracranialSpace);
-        temporalLobe.setExit("east", intracranialSpace);
-        parietalLobe.setExit("north", intracranialSpace);
-        occipitalLobe.setExit("west", intracranialSpace);
-        cerebellum.setExit("southEast", intracranialSpace);
+        frontalLobe.setExit("backward", intracranialSpace);
+        frontalLobe.setExit("forward", concentrationCentre);
+        frontalLobe.setExit("left", writingCentre);
+        frontalLobe.setExit("right", olfactoryCentre);
 
-        parietalLobe.setExit("east", olfactoryCenter);
+        temporalLobe.setExit("backward", intracranialSpace);
+        temporalLobe.setExit("forward", hearingCentre);
+        temporalLobe.setExit("left", memoryCentre);
+        temporalLobe.setExit("right", musicCentre);
 
-        olfactoryCenter.setExit("west", parietalLobe);
+        parietalLobe.setExit("backward", intracranialSpace);
+        parietalLobe.setExit("forward", touchCentre);
+        parietalLobe.setExit("left", tasteCentre);
+        parietalLobe.setExit("right", puzzleCentre);
+
+        occipitalLobe.setExit("backward", intracranialSpace);
+        occipitalLobe.setExit("left", visionCentre);
+        occipitalLobe.setExit("right", readingCentre);
+
+        cerebellum.setExit("backward", intracranialSpace);
 
         startRoom = intracranialSpace;  // start game outside
     }
 
     public Room getStartRoom()
+
     {
         return startRoom;
     }
+
 }
 
 
