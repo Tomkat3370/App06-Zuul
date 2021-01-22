@@ -1,3 +1,4 @@
+import java.util.arraylist;
 /**
  * This class is all about the player, in "world of zuul".
  * The idea is to create a player, select a name, make sure energy levels are ok.
@@ -16,7 +17,7 @@ public class Player {
   private int score;
   private int moves;
 
-  private ArrayList<ItemTypes> items;
+  private ArrayList Items <items>;
 
 
   private int energy;
