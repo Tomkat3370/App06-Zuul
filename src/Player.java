@@ -12,7 +12,7 @@ public class Player {
   public static final int MIN_ENERGY = 10;
 
   private String name;
-
+  private Player player;
   private int score;
   private int moves;
 
@@ -20,9 +20,12 @@ public class Player {
 
 
   private int energy;
-  private int food;
-
+  private Item food;
+  public Player()
+  {
+    player = new PLayer;
+  }
 }
-// create character
+// create player
 //
-Character Sam = new Character ("Sam", "collect food for energy")
+player = new player ("collect food for energy");
