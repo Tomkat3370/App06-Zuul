@@ -14,20 +14,19 @@ public class Player {
   public static final int MIN_ENERGY = 10;
 
   private String name;
-  private Player player;
   private int score;
   private int moves;
 
-  private ArrayList Items <items>;
+  private ArrayList <Items> items;
 
 
   private int energy;
-  private Item food;
-  public Player()
+  private Items food;
+
+  public Player(String name)
   {
-    player = new PLayer;
+    this.name = name;
+    score = 0;
+    //TODO finish
   }
 }
-// create player
-//
-player = new player ("collect food for energy");
