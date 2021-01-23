@@ -29,4 +29,37 @@ public class Player {
     score = 0;
     //TODO finish
   }
+
+  //TODO add getters and setters
+
+
+  public int getEnergy()
+  {
+    return energy;
+  }
+
+  public int getMoves()
+  {
+    return moves;
+  }
+
+  public int getScore()
+  {
+    return score;
+  }
+
+  public void setScore(int score)
+  {
+    this.score = score;
+  }
+
+  public void setEnergy(int energy)
+  {
+    this.energy = energy;
+  }
+
+  public void setMoves(int moves)
+  {
+    this.moves = moves;
+  }
 }
