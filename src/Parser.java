@@ -61,6 +61,15 @@ public class Parser
         return new Command(commands.getCommandWord(word1), word2);
     }
 
+    public String getString(String prompt)
+    {
+        System.out.print(prompt);
+
+        String value = reader.nextLine();
+
+        return value;
+    }
+
     /**
      * Print out a list of valid command words.
      */

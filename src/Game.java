@@ -22,6 +22,7 @@ public class Game
     private Parser parser;
     private BrainArea currentBrainArea;
     private Map map;
+    private Player player;
         
     /**
      * Create the game and initialise its internal map.
@@ -31,6 +32,8 @@ public class Game
         parser = new Parser();
         map = new Map();
         currentBrainArea = map.getStartRoom();
+        getPlayer();
+
         play();
     }
 
@@ -53,6 +56,12 @@ public class Game
         }
         
         System.out.println("Thank you for playing.  Good bye.");
+    }
+
+    private void getPlayer()
+    {
+        String name = parser.getString("Please enter your name >") ;
+        player = new Player(name);
     }
 
     /**
@@ -94,11 +103,20 @@ public class Game
                 goRoom(command);
                 break;
 
+            case LOOK:
+                lookAround(command);
+                break;
+
             case QUIT:
                 wantToQuit = quit(command);
                 break;
         }
         return wantToQuit;
+    }
+
+    private void lookAround(Command command)
+    {
+        currentBrainArea.printItem();
     }
 
     // implementations of user commands:
@@ -136,10 +154,13 @@ public class Game
         // Try to leave current room.
         BrainArea nextBrainArea = currentBrainArea.getExit(direction);
 
-        if (nextBrainArea == null) {
+        if (nextBrainArea == null)
+        {
             System.out.println("There is no door!");
         }
-        else {
+        else
+            {
+
             currentBrainArea = nextBrainArea;
             System.out.println(currentBrainArea.getLongDescription());
         }

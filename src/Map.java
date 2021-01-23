@@ -12,6 +12,12 @@ public class Map
     public Map()
     {
         createRooms();
+        setItems();
+    }
+
+    private void setItems()
+    {
+        frontalLobe.setItem(Items.BANANA);
     }
 
     /**

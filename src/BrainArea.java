@@ -96,5 +96,19 @@ public class BrainArea
     {
         return exits.get(direction);
     }
-}
 
+    public void setItem(Items item)
+    {
+        this.item = item;
+    }
+
+    public Items getItem()
+    {
+        return item;
+    }
+
+    public void printItem()
+    {
+        System.out.println("\nItem found: " + item);
+    }
+}
