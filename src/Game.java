@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  *  This class is the main class of the "World of Zuul" application. 
  *  "World of Zuul" is a very simple, text based adventure game.  Users 
@@ -23,6 +25,8 @@ public class Game
     private BrainArea currentBrainArea;
     private Map map;
     private Player player;
+
+    private ArrayList<Items> item;
         
     /**
      * Create the game and initialise its internal map.
@@ -33,6 +37,7 @@ public class Game
         map = new Map();
         currentBrainArea = map.getStartRoom();
         getPlayer();
+        item = new ArrayList<>();
 
         play();
     }
@@ -164,6 +169,20 @@ public class Game
             currentBrainArea = nextBrainArea;
             System.out.println(currentBrainArea.getLongDescription());
         }
+    }
+
+    private boolean collect(Command command)
+    {
+        if (item != null)
+        {
+            System.out.println("You have collected" + item);
+
+        }
+        else
+        {
+            System.out.println("No items to collect");
+        }
+
     }
 
     //TODO: Add restart/reset command
