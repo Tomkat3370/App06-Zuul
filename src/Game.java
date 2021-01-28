@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.ArrayList;
 
 /**
@@ -171,21 +172,31 @@ public class Game
         }
     }
 
-    private void collect(Command command)
+    private boolean collect(Command command)
     {
-        if (item != null)
+        if(command.hasSecondWord())
         {
             System.out.println("You have collected" + item);
-
+            //TODO Add item to rucksack??
+            return true;
         }
         else
         {
-            System.out.println("No items to collect");
+            System.out.println("collect what?");
+            return false;
         }
-
     }
 
-    //TODO: Add restart/reset command
+    private boolean restart(Command command)
+    {
+        if(command.hasSecondWord()) {
+            System.out.println("restart what?");
+            return false;
+        }
+        else {
+            return true;  // signal that we want to restart the game
+        }
+    }
 
     /** 
      * "Quit" was entered. Check the rest of the command to see
