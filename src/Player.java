@@ -11,14 +11,13 @@ import java.util.ArrayList;
 public class Player {
 
   public static final int MAX_ENERGY = 100;
-  public static final int MIN_ENERGY = 10;
+  public static final int MIN_ENERGY = 0;
 
   private String name;
   private int score;
   private int moves;
 
   private ArrayList <Items> items;
-
 
   private int energy;
   private Items food;
@@ -27,11 +26,8 @@ public class Player {
   {
     this.name = name;
     score = 0;
-    //TODO finish
+    energy = MAX_ENERGY;
   }
-
-  //TODO add getters and setters
-
 
   public int getEnergy()
   {
@@ -59,7 +55,14 @@ public class Player {
   }
 
   public void setMoves(int moves)
+
   {
     this.moves = moves;
   }
+
+  public String getName()
+  {
+    return name;
+  }
+
 }

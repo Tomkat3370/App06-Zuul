@@ -17,7 +17,7 @@ public class Map
 
     private void setItems()
     {
-        frontalLobe.setItem(Items.BANANA);
+        frontalLobe.setItem(Items.BANANA, Items.FRONTAL_KEY);
     }
 
     /**
@@ -25,10 +25,6 @@ public class Map
      */
     private void createRooms()
     {
-
-
-        // create all rooms
-        // TODO: Split method to primary and secondary rooms
         intracranialSpace = new BrainArea("outside the brain");
 
         frontalLobe = new BrainArea("in the control panel of personality and communication");
