@@ -17,7 +17,7 @@ public class Player {
   private int score;
   private int moves;
 
-  private ArrayList <Items> items;
+  private ArrayList <Items> item;
 
   private int energy;
   private Items food;

@@ -17,7 +17,10 @@ public class Map
 
     private void setItems()
     {
-        frontalLobe.setItem(Items.BANANA, Items.FRONTAL_KEY);
+        frontalLobe.setItem(Items.BANANA);
+        frontalLobe.setItem(Items.CHEESE);
+        frontalLobe.setItem(Items.FRONTAL_KEY);
+
     }
 
     /**

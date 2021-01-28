@@ -97,7 +97,7 @@ public class BrainArea
         return exits.get(direction);
     }
 
-    public void setItem(Items item, Items frontalKey)
+    public void setItem(Items item)
     {
         this.item = item;
     }
@@ -111,4 +111,6 @@ public class BrainArea
     {
         System.out.println("\nItem found: " + item);
     }
+
+
 }
