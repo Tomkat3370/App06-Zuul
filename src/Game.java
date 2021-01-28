@@ -171,7 +171,7 @@ public class Game
         }
     }
 
-    private boolean collect(Command command)
+    private void collect(Command command)
     {
         if (item != null)
         {
