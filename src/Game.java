@@ -26,6 +26,7 @@ public class Game
     private BrainArea currentBrainArea;
     private Map map;
     private Player player;
+    private Rucksack rucksack;
 
     private ArrayList<Items> item;
         
@@ -116,8 +117,25 @@ public class Game
             case QUIT:
                 wantToQuit = quit(command);
                 break;
+
+            case RESTART:
+                restart(command);
+
+            case COLLECT:
+                collect(command);
+
+            case EXCHANGE:
+                exchange(command);
         }
         return wantToQuit;
+    }
+
+    private boolean exchange(Command command)
+    {
+        if(key == 3)
+        {
+
+        }
     }
 
     private void lookAround(Command command)
@@ -187,13 +205,27 @@ public class Game
         }
     }
 
+    public Rucksack addItem()
+    {
+        if (player.collectItem)
+        {
+            System.out.println("You have stored " + item + " in you're rucksack");
+            rucksack.addItem;
+        } else
+        {
+            System.out.println("no Item available to add");
+        }
+    }
+
     private boolean restart(Command command)
     {
-        if(command.hasSecondWord()) {
+        if(command.hasSecondWord())
+        {
             System.out.println("restart what?");
             return false;
         }
-        else {
+        else
+        {
             return true;  // signal that we want to restart the game
         }
     }

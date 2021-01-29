@@ -2,19 +2,27 @@ import java.util.ArrayList;
 
 public class Rucksack
 {
-    private Items item;
+    public Rucksack addItem;
     private Player player;
-    private Items storedItem;
+
+    private ArrayList<Items> item;
 
 
     public Rucksack()
     {
-        storedItem = getItem();
+        item = new ArrayList<>();
     }
 
-    public Items getItem()
+    public ArrayList<Items> getItem()
     {
         return item;
+    }
+
+
+
+    public Items removeItem()
+    {
+
     }
 
     private void print()

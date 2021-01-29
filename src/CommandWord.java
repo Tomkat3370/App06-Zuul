@@ -11,8 +11,8 @@ public enum CommandWord
     // corresponding user interface string.
     // TODO: Add 2 more command words
     GO("go"), QUIT("quit"),
-    COLLECT("collect"), INSERT("insert"),
-    LOOK("look"),
+    COLLECT("collect"), EXCHANGE("exchange"),
+    LOOK("look"), RESTART("restart"),
     HELP("help"), UNKNOWN("unknown");
     
     // The command string.
