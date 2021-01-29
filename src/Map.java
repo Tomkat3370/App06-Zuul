@@ -19,7 +19,7 @@ public class Map
     {
         frontalLobe.setItem(Items.BANANA);
         frontalLobe.setItem(Items.CHEESE);
-        frontalLobe.setItem(Items.FRONTAL_KEY);
+        frontalLobe.setItem(Items.KEY);
 
     }
 

@@ -146,7 +146,7 @@ public class Game
         }
         else
         {
-            System.out.println("Youo do not have enough Tokens to exchange");
+            System.out.println("You do not have enough Tokens to exchange");
         }
     }
 
@@ -230,12 +230,12 @@ public class Game
         }
     }
 
-    public Items removeItem()
+    public void removeItem()
     {
-        if (exchange() );
+        if(player.exchangeItem)
         {
             System.out.println("You have removed " + item + " from you're rucksack");
-            Rucksack removeitem = rucksack.removeItem;
+            removeItem();
         }
         else
         {

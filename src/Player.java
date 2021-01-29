@@ -13,6 +13,7 @@ public class Player {
   public static final int MAX_ENERGY = 100;
   public static final int MIN_ENERGY = 0;
   public boolean collectItem;
+  public boolean exchangeItem;
 
   private String name;
   private int score;
