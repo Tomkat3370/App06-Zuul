@@ -210,11 +210,17 @@ public class Game
         if (player.collectItem)
         {
             System.out.println("You have stored " + item + " in you're rucksack");
-            rucksack.addItem;
-        } else
+            rucksack.addItem
+        } 
+        else
         {
             System.out.println("no Item available to add");
         }
+    }
+
+    public Items removeItem()
+    {
+
     }
 
     private boolean restart(Command command)

@@ -18,13 +18,6 @@ public class Rucksack
         return item;
     }
 
-
-
-    public Items removeItem()
-    {
-
-    }
-
     private void print()
     {
         System.out.println("Rucksack:/n" + item);
