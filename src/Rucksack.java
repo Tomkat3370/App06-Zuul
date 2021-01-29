@@ -7,6 +7,7 @@ public class Rucksack
     private Player player;
 
     private ArrayList<Items> item;
+    private Rucksack inventory;
 
     public Rucksack()
     {
@@ -26,11 +27,12 @@ public class Rucksack
 
     public void removeItem()
     {
-       item.remove(item);
+       inventory.removeItem();
     }
 
     public void addItem()
     {
-        item.add(item);
+        inventory.addItem();
     }
+
 }
