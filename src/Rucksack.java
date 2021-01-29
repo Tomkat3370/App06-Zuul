@@ -6,7 +6,7 @@ public class Rucksack
     public Rucksack removeItem;
     private Player player;
 
-    private ArrayList<Items> item;
+    private final ArrayList<Items> item;
     private Rucksack inventory;
 
     public Rucksack()
@@ -19,20 +19,9 @@ public class Rucksack
         return item;
     }
 
-
     private void print()
     {
         System.out.println("Rucksack:/n" + item);
-    }
-
-    public void removeItem()
-    {
-       inventory.removeItem();
-    }
-
-    public void addItem()
-    {
-        inventory.addItem();
     }
 
 }

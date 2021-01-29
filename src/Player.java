@@ -23,7 +23,7 @@ public class Player {
   private ArrayList <Items> item;
 
   private int energy;
-  private Items food;
+
 
   public Player(String name)
   {

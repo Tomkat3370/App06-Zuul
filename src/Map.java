@@ -21,6 +21,30 @@ public class Map
         frontalLobe.setItem(Items.CHEESE);
         frontalLobe.setItem(Items.KEY);
 
+        concentrationCentre.setItem(Items.TOKEN);
+        concentrationCentre.setItem(Items.CRACKERS);
+
+        writingCentre.setItem(Items.TOKEN);
+        writingCentre.setItem(Items.SPINACH);
+
+        olfactoryCentre.setItem(Items.TOKEN);
+        olfactoryCentre.setItem(Items.BANANA);
+
+        parietalLobe.setItem(Items.CRACKERS);
+        parietalLobe.setItem(Items.CHEESE);
+        parietalLobe.setItem(Items.KEY);
+
+        hearingCentre.setItem(Items.BANANA);
+        hearingCentre.setItem(Items.TOKEN);
+
+        memoryCentre.setItem(Items.SPINACH);
+        memoryCentre.setItem(Items.TOKEN);
+
+        musicCentre.setItem(Items.CRACKERS);
+        musicCentre.setItem(Items.TOKEN);
+
+        temporalLobe.setItem(Items.SPINACH);
+
     }
 
     /**
@@ -37,13 +61,13 @@ public class Map
         olfactoryCentre = new BrainArea("in the smell recognition room");
 
         parietalLobe = new BrainArea("in the physical sensory processor");
-        //Rooms inside temporalLobe
+        //Rooms inside parietalLobe
         hearingCentre = new BrainArea("in the hearing room");
         memoryCentre = new BrainArea("in the memories room");
         musicCentre = new BrainArea("in the music room");
 
         temporalLobe = new BrainArea("in the auditory and emotion interpreter/memory creator");
-        //Rooms inside parietalLobe
+        //Rooms inside temporalLobe
         touchCentre = new BrainArea("in the touch room");
         tasteCentre = new BrainArea("in the tasting room");
         puzzleCentre = new BrainArea("in the puzzle room");

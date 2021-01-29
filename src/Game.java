@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * @author  Michael Kölling and David J. Barnes
  * @version 2016.02.29
  * 
- * Modified and extended by Derek and Andrei
+ * Modified and extended by Kate Gordon and Sarah Cunningham
  */
 
 public class Game 
@@ -39,7 +39,7 @@ public class Game
         map = new Map();
         currentBrainArea = map.getStartRoom();
         getPlayer();
-        item = new ArrayList<>();
+        item = new ArrayList<Items>();
         inventory = new ArrayList<Rucksack>();
 
         play();
@@ -121,23 +121,22 @@ public class Game
 
             case RESTART:
                 restart(command);
+                break;
 
             case COLLECT:
                 collect(command);
+                break;
 
             case EXCHANGE:
                 exchange(command);
+                break;
         }
         return wantToQuit;
     }
 
-    private void exchange(Command command)
+       private void exchange(Command command)
     {
-    }
-
-    private void exchange(Command command, int TOKEN, Items KEY)
-    {
-        if(TOKEN == 3)
+        if(() ==  )
         {
             rucksack.removeItem();
             rucksack.addItem();
@@ -195,7 +194,7 @@ public class Game
             System.out.println("There is no door!");
         }
         else
-            {
+        {
 
             currentBrainArea = nextBrainArea;
             System.out.println(currentBrainArea.getLongDescription());
@@ -207,7 +206,8 @@ public class Game
         if(command.hasSecondWord())
         {
             System.out.println("You have collected" + item);
-            //TODO Add item to rucksack??
+            rucksack.addItem();
+
             return true;
         }
         else
