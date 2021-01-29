@@ -1,4 +1,3 @@
-import javax.swing.*;
 import java.util.ArrayList;
 
 /**
@@ -125,16 +124,19 @@ public class Game
                 collect(command);
 
             case EXCHANGE:
-                exchange(command);
+                exchange(command, TOKEN);
         }
         return wantToQuit;
     }
 
-    private boolean exchange(Command command)
+    private void exchange(Command command, Items TOKEN, Items KEY)
     {
-        if(key == 3)
+        if(TOKEN == 3)
         {
-
+            rucksack.removeItem(TOKEN);
+            rucksack.addItem(KEY);
+            System.out.println("You have successfully exchanged your tokens for a key");
+            System.out.println("You can now access the next room.");
         }
     }
 
@@ -205,13 +207,13 @@ public class Game
         }
     }
 
-    public Rucksack addItem()
+    public void addItem()
     {
         if (player.collectItem)
         {
             System.out.println("You have stored " + item + " in you're rucksack");
-            rucksack.addItem
-        } 
+            Rucksack addItem = rucksack.addItem;
+        }
         else
         {
             System.out.println("no Item available to add");
@@ -222,8 +224,8 @@ public class Game
     {
         if ()
         {
-            System.out.println("You have stored " + item + " in you're rucksack");
-            rucksack.removeItem;
+            System.out.println("You have removed " + item + " from you're rucksack");
+            Rucksack removeitem = rucksack.removeItem;
         }
         else
         {

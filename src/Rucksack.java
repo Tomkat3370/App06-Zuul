@@ -3,10 +3,10 @@ import java.util.ArrayList;
 public class Rucksack
 {
     public Rucksack addItem;
+    public Rucksack removeItem;
     private Player player;
 
     private ArrayList<Items> item;
-
 
     public Rucksack()
     {
@@ -18,9 +18,14 @@ public class Rucksack
         return item;
     }
 
+
     private void print()
     {
         System.out.println("Rucksack:/n" + item);
     }
 
+    public void removeItem(Items)
+    {
+
+    }
 }
