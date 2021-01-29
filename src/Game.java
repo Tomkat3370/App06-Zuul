@@ -220,7 +220,15 @@ public class Game
 
     public Items removeItem()
     {
-
+        if ()
+        {
+            System.out.println("You have stored " + item + " in you're rucksack");
+            rucksack.removeItem;
+        }
+        else
+        {
+            System.out.println("no Item available to add");
+        }
     }
 
     private boolean restart(Command command)
