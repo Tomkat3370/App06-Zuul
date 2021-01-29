@@ -28,6 +28,7 @@ public class Game
     private Rucksack rucksack;
 
     private ArrayList<Items> item;
+    private ArrayList<Rucksack> inventory;
         
     /**
      * Create the game and initialise its internal map.
@@ -39,6 +40,7 @@ public class Game
         currentBrainArea = map.getStartRoom();
         getPlayer();
         item = new ArrayList<>();
+        inventory = new ArrayList<Rucksack>();
 
         play();
     }
@@ -124,19 +126,27 @@ public class Game
                 collect(command);
 
             case EXCHANGE:
-                exchange(command, TOKEN);
+                exchange(command);
         }
         return wantToQuit;
     }
 
-    private void exchange(Command command, Items TOKEN, Items KEY)
+    private void exchange(Command command)
+    {
+    }
+
+    private void exchange(Command command, int TOKEN, Items KEY)
     {
         if(TOKEN == 3)
         {
-            rucksack.removeItem(TOKEN);
-            rucksack.addItem(KEY);
+            rucksack.removeItem();
+            rucksack.addItem();
             System.out.println("You have successfully exchanged your tokens for a key");
             System.out.println("You can now access the next room.");
+        }
+        else
+        {
+            System.out.println("Youo do not have enough Tokens to exchange");
         }
     }
 
@@ -222,7 +232,7 @@ public class Game
 
     public Items removeItem()
     {
-        if ()
+        if (exchange() );
         {
             System.out.println("You have removed " + item + " from you're rucksack");
             Rucksack removeitem = rucksack.removeItem;
