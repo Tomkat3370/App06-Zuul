@@ -23,7 +23,7 @@ public class BrainArea
     // String is the key to a room in that direction
     // east would be an exit that goes to the Room
     private HashMap<String, BrainArea> exits;
-    private Item items;
+    private Items items;
 
 
     /**
@@ -107,15 +107,18 @@ public class BrainArea
                 + items);
     }
 
-    public void setItems(Item items)
+    public void setItems(Items items)
     {
         this.items = items;
     }
 
-    public Item getItems()
+    public Items getItems()
     {
         return items;
     }
 
 
+    public void printItem()
+    {
+    }
 }

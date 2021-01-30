@@ -26,9 +26,9 @@ public class Game
     private Map map;
     private Player player;
     private Rucksack rucksack;
-    private Tokens tokens;
 
-    private ArrayList<Tokens> item;
+
+    private ArrayList<Items> item;
     private ArrayList<Rucksack> inventory;
         
     /**
@@ -40,7 +40,7 @@ public class Game
         map = new Map();
         currentBrainArea = map.getStartRoom();
         getPlayer();
-        item = new ArrayList<Tokens>();
+        item = new ArrayList<Items>();
         inventory = new ArrayList<Rucksack>();
 
         play();
@@ -135,12 +135,15 @@ public class Game
         return wantToQuit;
     }
 
-       private void exchange(Command command)
+    private void collect(Command command)
+    {
+    }
+
+    private void exchange(Command command)
     {
         if (command.hasSecondWord())
         {
-            rucksack.removeItem(tokens);
-            map.releaseItem(key);
+
         }
     }
 
@@ -196,28 +199,8 @@ public class Game
         }
     }
 
-    private boolean collect(Command command)
-    {
-        if(command.hasSecondWord())
-        {
-            if(tokens.getItemQuantity() <= 0)
-            {
-                System.out.println("You have collected" + item);
-                rucksack.addItem();
-            }
-            else
-            {
-                tokens.increaseItemQuantity();
-            }
-            System.out.println("You have collected" + tokens.toString());
-            return true;
-        }
-        else
-        {
-            System.out.println("collect what?");
-            return false;
-        }
-    }
+    //private boolean collect(Command command)
+
 
     public void addItem()
     {
