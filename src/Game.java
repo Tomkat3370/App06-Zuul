@@ -26,6 +26,7 @@ public class Game
     private Map map;
     private Player player;
     private Rucksack rucksack;
+    private Items items;
 
     private ArrayList<Items> item;
     private ArrayList<Rucksack> inventory;
@@ -136,7 +137,7 @@ public class Game
 
        private void exchange(Command command)
     {
-        if(() ==  )
+        if(items.("TOKEN") )
         {
             rucksack.removeItem();
             rucksack.addItem();
@@ -205,9 +206,16 @@ public class Game
     {
         if(command.hasSecondWord())
         {
-            System.out.println("You have collected" + item);
-            rucksack.addItem();
-
+            if(items.getItemQuantity() <= 0)
+            {
+                System.out.println("You have collected" + item);
+                rucksack.addItem();
+            }
+            else
+            {
+                items.increaseItemQuantity();
+            }
+            System.out.println("You have collected" + items.toString());
             return true;
         }
         else
