@@ -19,32 +19,54 @@ public class Map
     {
         frontalLobe.setItem(Items.BANANA);
         frontalLobe.setItem(Items.CHEESE);
-        frontalLobe.setItem(Items.KEY);
+        frontalLobe.setItem(Items.FRONTAL_KEY);
 
-        concentrationCentre.setItem(Items.TOKEN);
+        concentrationCentre.setItem(Items.CONCENTRATION_TOKEN);
         concentrationCentre.setItem(Items.CRACKERS);
 
-        writingCentre.setItem(Items.TOKEN);
+        writingCentre.setItem(Items.WRITING_TOKEN);
         writingCentre.setItem(Items.SPINACH);
 
-        olfactoryCentre.setItem(Items.TOKEN);
+        olfactoryCentre.setItem(Items.OLFACTORY_TOKEN);
         olfactoryCentre.setItem(Items.BANANA);
 
         parietalLobe.setItem(Items.CRACKERS);
         parietalLobe.setItem(Items.CHEESE);
-        parietalLobe.setItem(Items.KEY);
+        parietalLobe.setItem(Items.PARIETAL_KEY);
 
         hearingCentre.setItem(Items.BANANA);
-        hearingCentre.setItem(Items.TOKEN);
+        hearingCentre.setItem(Items.HEARING_TOKEN);
 
         memoryCentre.setItem(Items.SPINACH);
-        memoryCentre.setItem(Items.TOKEN);
+        memoryCentre.setItem(Items.MEMORY_TOKEN);
 
         musicCentre.setItem(Items.CRACKERS);
-        musicCentre.setItem(Items.TOKEN);
+        musicCentre.setItem(Items.MUSIC_TOKEN);
 
         temporalLobe.setItem(Items.SPINACH);
+        temporalLobe.setItem(Items.TEMPORAL_KEY);
+        temporalLobe.setItem(Items.CHEESE);
 
+        touchCentre.setItem(Items.BANANA);
+        touchCentre.setItem(Items.TOUCH_TOKEN);
+
+        tasteCentre.setItem(Items.CRACKERS);
+        tasteCentre.setItem(Items.TASTE_TOKEN);
+
+        puzzleCentre.setItem(Items.BANANA);
+        puzzleCentre.setItem(Items.PUZZLE_TOKEN);
+
+        occipitalLobe.setItem(Items.SPINACH);
+        occipitalLobe.setItem(Items.CRACKERS);
+        occipitalLobe.setItem(Items.OCCIPITAL_KEY);
+
+        visionCentre.setItem(Items.CHEESE);
+        visionCentre.setItem(Items.VISION_TOKEN);
+
+        readingCentre.setItem(Items.BANANA);
+        readingCentre.setItem(Items.READING_TOKEN);
+
+        cerebellum.setItem(Items.TROPHY);
     }
 
     /**
@@ -52,32 +74,51 @@ public class Map
      */
     private void createRooms()
     {
-        intracranialSpace = new BrainArea("outside the brain");
+        intracranialSpace = new BrainArea("You are in the Intracranial Space of the Brain." +
+                "From here you can access all areas of the Brain.");
 
-        frontalLobe = new BrainArea("in the control panel of personality and communication");
+        frontalLobe = new BrainArea("You are in the frontal lobe. This is the control " +
+                "panel of personality and communication. From here you can access the concentration, " +
+                "writing and olfactory centres of the Brain");
         //Rooms inside frontalLobe
-        concentrationCentre = new BrainArea("in the concentration, planning and problem solver");
-        writingCentre = new BrainArea("in the writing room");
-        olfactoryCentre = new BrainArea("in the smell recognition room");
+        concentrationCentre = new BrainArea("You have entered the concentration centre. You must" +
+                "complete the puzzle to receive the token for this room.");
+        writingCentre = new BrainArea("You have entered the writing center. You must " +
+                 "complete the puzzle to receive the token from here.");
+        olfactoryCentre = new BrainArea("You have entered the concentration centre. You must" +
+                 "complete the puzzle to receive the token from here.");
 
-        parietalLobe = new BrainArea("in the physical sensory processor");
+        parietalLobe = new BrainArea("You are in the parietal lobe." +
+                " This is the  the physical sensory processor. From here you can access the " +
+                "concentration, writing and olfactory centres of the Brain");
         //Rooms inside parietalLobe
-        hearingCentre = new BrainArea("in the hearing room");
-        memoryCentre = new BrainArea("in the memories room");
-        musicCentre = new BrainArea("in the music room");
+        hearingCentre = new BrainArea("You have entered the hearing room. You must complete" +
+                "the puzzle to receive the token from here.");
+        memoryCentre = new BrainArea("You have entered the memories room. You must complete" +
+                "the puzzle to receive the token from here.");
+        musicCentre = new BrainArea("You have entered the music room. You must complete" +
+                "the puzzle to receive the token from here.");
 
-        temporalLobe = new BrainArea("in the auditory and emotion interpreter/memory creator");
+        temporalLobe = new BrainArea("You have entered the auditory and emotion interpreter" +
+                "/memory creator. From here you can access the touch, taste and puzzle centres of the Brain..");
         //Rooms inside temporalLobe
-        touchCentre = new BrainArea("in the touch room");
-        tasteCentre = new BrainArea("in the tasting room");
-        puzzleCentre = new BrainArea("in the puzzle room");
+        touchCentre = new BrainArea("You have entered the touch room. You must complete" +
+                "the puzzle to receive the token from here.");
+        tasteCentre = new BrainArea("You have entered the tasting room. You must complete" +
+                "the puzzle to receive the token from here.");
+        puzzleCentre = new BrainArea("You have entered the puzzle room. You must complete" +
+                "the puzzle to receive the token from here.");
 
-        occipitalLobe = new BrainArea("in the visual interpreter");
+        occipitalLobe = new BrainArea("You have entered the occipital lobe, the visual interpreter" +
+                "of the Brain. From here you can access the vision and reading centres of the Brain");
         //Rooms inside occipitalLobe
-        visionCentre = new BrainArea("in the vision room");
-        readingCentre = new BrainArea("in the reading room");
+        visionCentre = new BrainArea("You have entered the vision room. You must complete" +
+                "the puzzle to receive the token from here");
+        readingCentre = new BrainArea("You have entered the reading room. You must complete" +
+                "the puzzle to receive the token from here.");
 
-        cerebellum = new BrainArea("in the voluntary movement coordinator");
+        cerebellum = new BrainArea("You have entered the cerebellun, the voluntary " +
+                "movement coordinator. This is the final room in the game. CONGRATULATIONS YOU WIN!!");
 
         setExits();
 
