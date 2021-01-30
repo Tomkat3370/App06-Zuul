@@ -18,11 +18,13 @@ import java.util.HashMap;
 public class BrainArea
 {
     private String name;
-    private Items item;
+
     private String description;
     // String is the key to a room in that direction
     // east would be an exit that goes to the Room
     private HashMap<String, BrainArea> exits;
+    private Item items;
+
 
     /**
      * Create a room described "description". Initially, it has
@@ -97,19 +99,22 @@ public class BrainArea
         return exits.get(direction);
     }
 
-    public void setItem(Items item)
+
+
+    public void printPossibleItems()
     {
-        this.item = item;
+        System.out.println("Items that cam be found in this room are: "
+                + items);
     }
 
-    public Items getItem()
+    public void setItems(Item items)
     {
-        return item;
+        this.items = items;
     }
 
-    public void printItem()
+    public Item getItems()
     {
-        System.out.println("\nItem found: " + item);
+        return items;
     }
 
 

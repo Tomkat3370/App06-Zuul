@@ -26,9 +26,9 @@ public class Game
     private Map map;
     private Player player;
     private Rucksack rucksack;
-    private Items items;
+    private Tokens tokens;
 
-    private ArrayList<Items> item;
+    private ArrayList<Tokens> item;
     private ArrayList<Rucksack> inventory;
         
     /**
@@ -40,7 +40,7 @@ public class Game
         map = new Map();
         currentBrainArea = map.getStartRoom();
         getPlayer();
-        item = new ArrayList<Items>();
+        item = new ArrayList<Tokens>();
         inventory = new ArrayList<Rucksack>();
 
         play();
@@ -137,16 +137,10 @@ public class Game
 
        private void exchange(Command command)
     {
-        if(items.("TOKEN") )
+        if (command.hasSecondWord())
         {
-            rucksack.removeItem();
-            rucksack.addItem();
-            System.out.println("You have successfully exchanged your tokens for a key");
-            System.out.println("You can now access the next room.");
-        }
-        else
-        {
-            System.out.println("You do not have enough Tokens to exchange");
+            rucksack.removeItem(tokens);
+            map.releaseItem(key);
         }
     }
 
@@ -206,16 +200,16 @@ public class Game
     {
         if(command.hasSecondWord())
         {
-            if(items.getItemQuantity() <= 0)
+            if(tokens.getItemQuantity() <= 0)
             {
                 System.out.println("You have collected" + item);
                 rucksack.addItem();
             }
             else
             {
-                items.increaseItemQuantity();
+                tokens.increaseItemQuantity();
             }
-            System.out.println("You have collected" + items.toString());
+            System.out.println("You have collected" + tokens.toString());
             return true;
         }
         else

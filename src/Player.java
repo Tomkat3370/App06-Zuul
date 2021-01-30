@@ -20,7 +20,7 @@ public class Player {
   private int moves;
 
 
-  private ArrayList <Items> item;
+  private ArrayList <Tokens> item;
 
   private int energy;
 

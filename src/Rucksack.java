@@ -6,15 +6,16 @@ public class Rucksack
     public Rucksack removeItem;
     private Player player;
 
-    private final ArrayList<Items> item;
+    private final ArrayList<Item> item;
     private Rucksack inventory;
 
-    public Rucksack()
+    public Rucksack(Player player)
     {
-        item = new ArrayList<>();
+        this.player = player;
+        item = new ArrayList<Item>();
     }
 
-    public ArrayList<Items> getItem()
+    public ArrayList<Item> getItem()
     {
         return item;
     }
@@ -29,8 +30,27 @@ public class Rucksack
         inventory.addItem();
     }
 
-    public void removeItem()
+    public void removeItem(Tokens tokens)
     {
-        inventory.removeItem();
+        inventory.removeItem(tokens);
     }
+
+    //The item quantity
+    private int itemQuantity;
+
+    public void setItemQuantity(int itemQuantity)
+    {
+        itemQuantity = 0;
+    }
+
+    public int getItemQuantity()
+    {
+        return itemQuantity;
+    }
+
+    public void increaseItemQuantity()
+    {
+        itemQuantity++;
+    }
+
 }

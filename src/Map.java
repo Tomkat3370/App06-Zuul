@@ -15,58 +15,63 @@ public class Map
         setItems();
     }
 
+    private void setTokens()
+    {
+        concentrationCentre.setTokens(Tokens.CONCENTRATION_TOKEN);
+    }
+
     private void setItems()
     {
-        frontalLobe.setItem(Items.BANANA);
-        frontalLobe.setItem(Items.CHEESE);
-        frontalLobe.setItem(Items.FRONTAL_KEY);
+        frontalLobe.setItems(Item.BANANA);
+        frontalLobe.setItems(Item.CHEESE);
+        frontalLobe.setItems(Item.FRONTAL_KEY);
 
-        concentrationCentre.setItem(Items.CONCENTRATION_TOKEN);
-        concentrationCentre.setItem(Items.CRACKERS);
 
-        writingCentre.setItem(Items.WRITING_TOKEN);
-        writingCentre.setItem(Items.SPINACH);
+        concentrationCentre.setItems(Item.CRACKERS);
 
-        olfactoryCentre.setItem(Items.OLFACTORY_TOKEN);
-        olfactoryCentre.setItem(Items.BANANA);
+        writingCentre.setItems(Item.WRITING_TOKEN);
+        writingCentre.setItems(Item.SPINACH);
 
-        parietalLobe.setItem(Items.CRACKERS);
-        parietalLobe.setItem(Items.CHEESE);
-        parietalLobe.setItem(Items.PARIETAL_KEY);
+        olfactoryCentre.setItems(Item.OLFACTORY_TOKEN);
+        olfactoryCentre.setItems(Item.BANANA);
 
-        hearingCentre.setItem(Items.BANANA);
-        hearingCentre.setItem(Items.HEARING_TOKEN);
+        parietalLobe.setItems(Item.CRACKERS);
+        parietalLobe.setItems(Item.CHEESE);
+        parietalLobe.setItems(Item.PARIETAL_KEY);
 
-        memoryCentre.setItem(Items.SPINACH);
-        memoryCentre.setItem(Items.MEMORY_TOKEN);
+        hearingCentre.setItems(Item.BANANA);
+        hearingCentre.setItems(Item.HEARING_TOKEN);
 
-        musicCentre.setItem(Items.CRACKERS);
-        musicCentre.setItem(Items.MUSIC_TOKEN);
+        memoryCentre.setItems(Item.SPINACH);
+        memoryCentre.setItems(Item.MEMORY_TOKEN);
 
-        temporalLobe.setItem(Items.SPINACH);
-        temporalLobe.setItem(Items.TEMPORAL_KEY);
-        temporalLobe.setItem(Items.CHEESE);
+        musicCentre.setItems(Item.CRACKERS);
+        musicCentre.setItems(Item.MUSIC_TOKEN);
 
-        touchCentre.setItem(Items.BANANA);
-        touchCentre.setItem(Items.TOUCH_TOKEN);
+        temporalLobe.setItems(Item.SPINACH);
+        temporalLobe.setItems(Item.TEMPORAL_KEY);
+        temporalLobe.setItems(Item.CHEESE);
 
-        tasteCentre.setItem(Items.CRACKERS);
-        tasteCentre.setItem(Items.TASTE_TOKEN);
+        touchCentre.setItems(Item.BANANA);
+        touchCentre.setItems(Item.TOUCH_TOKEN);
 
-        puzzleCentre.setItem(Items.BANANA);
-        puzzleCentre.setItem(Items.PUZZLE_TOKEN);
+        tasteCentre.setItems(Item.CRACKERS);
+        tasteCentre.setItems(Item.TASTE_TOKEN);
 
-        occipitalLobe.setItem(Items.SPINACH);
-        occipitalLobe.setItem(Items.CRACKERS);
-        occipitalLobe.setItem(Items.OCCIPITAL_KEY);
+        puzzleCentre.setItems(Item.BANANA);
+        puzzleCentre.setItems(Item.PUZZLE_TOKEN);
 
-        visionCentre.setItem(Items.CHEESE);
-        visionCentre.setItem(Items.VISION_TOKEN);
+        occipitalLobe.setItems(Item.SPINACH);
+        occipitalLobe.setItems(Item.CRACKERS);
+        occipitalLobe.setItems(Item.OCCIPITAL_KEY);
 
-        readingCentre.setItem(Items.BANANA);
-        readingCentre.setItem(Items.READING_TOKEN);
+        visionCentre.setItems(Item.CHEESE);
+        visionCentre.setItems(Item.VISION_TOKEN);
 
-        cerebellum.setItem(Items.TROPHY);
+        readingCentre.setItems(Item.BANANA);
+        readingCentre.setItems(Item.Token.READING_TOKEN);
+
+        cerebellum.setItems(Item.TROPHY);
     }
 
     /**
