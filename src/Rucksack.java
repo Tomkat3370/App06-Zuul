@@ -24,4 +24,13 @@ public class Rucksack
         System.out.println("Rucksack:/n" + item);
     }
 
+    public void addItem()
+    {
+        inventory.addItem();
+    }
+
+    public void removeItem()
+    {
+        inventory.removeItem();
+    }
 }
