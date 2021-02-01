@@ -1,9 +1,11 @@
 /**
  * Based on the Collosal Cave Adventure game
+ *
+ *Modified and extended by Kate Gordon and Sarah Cunningham
  */
 public class Main
 {
-    private static Game zuul;
+    private static Game brainFog;
 
     /**
      *
@@ -11,6 +13,6 @@ public class Main
      */
     public static void main(String[] args)
     {
-        zuul = new Game();
+        brainFog = new Game();
     }
 }

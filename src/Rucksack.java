@@ -1,26 +1,27 @@
 import java.util.ArrayList;
-
+/**
+ * Modified and extended by Kate Gordon and Sarah Cunningham
+ */
 public class Rucksack
 {
     public Rucksack addItem;
     public Rucksack removeItem;
     private Player player;
 
-    private final ArrayList<Item> item;
+    private ArrayList<Items> item;
     private Rucksack inventory;
 
     public Rucksack(Player player)
     {
         this.player = player;
-        item = new ArrayList<Item>();
+        item = new ArrayList<Items>();
     }
 
-    public ArrayList<Item> getItem()
+    public void getItem()
     {
-        return item;
     }
 
-    private void print()
+    void print()
     {
         System.out.println("Rucksack:/n" + item);
     }
@@ -30,27 +31,13 @@ public class Rucksack
         inventory.addItem();
     }
 
-    public void removeItem(Tokens tokens)
+    public void removeItem()
     {
-        inventory.removeItem(tokens);
+        inventory.removeItem();
     }
 
-    //The item quantity
-    private int itemQuantity;
-
-    public void setItemQuantity(int itemQuantity)
+    public void printInventory()
     {
-        itemQuantity = 0;
+        inventory.printInventory();
     }
-
-    public int getItemQuantity()
-    {
-        return itemQuantity;
-    }
-
-    public void increaseItemQuantity()
-    {
-        itemQuantity++;
-    }
-
 }

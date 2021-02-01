@@ -4,6 +4,7 @@
  * 
  * @author  Michael Kölling and David J. Barnes
  * @version 2016.02.29
+ * Modified and extended by Kate Gordon and Sarah Cunningham
  */
 public enum CommandWord
 {
@@ -11,9 +12,10 @@ public enum CommandWord
     // corresponding user interface string.
     // TODO: Add 2 more command words
     GO("go"), QUIT("quit"),
-    COLLECT("collect"), EXCHANGE("exchange"),
+    COLLECT("collect"), INVENTORY("inventory"),
     LOOK("look"), RESTART("restart"),
-    HELP("help"), UNKNOWN("unknown");
+    HELP("help"), UNKNOWN("unknown"),
+    DROP("drop");
     
     // The command string.
     private String commandString;

@@ -15,6 +15,7 @@ import java.util.Scanner;
  * 
  * @author  Michael Kölling and David J. Barnes
  * @version 2016.02.29
+ * Modified and extended by Kate Gordon and Sarah Cunningham
  */
 public class Parser 
 {

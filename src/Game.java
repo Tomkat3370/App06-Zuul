@@ -128,23 +128,31 @@ public class Game
                 collect(command);
                 break;
 
-            case EXCHANGE:
-                exchange(command);
+            case DROP:
+                drop(command);
                 break;
+
+            case INVENTORY:
+                inventory(command);
+                break;
+
         }
         return wantToQuit;
     }
 
-    private void collect(Command command)
+    private void drop(Command command)
     {
+        rucksack.removeItem();
     }
 
-    private void exchange(Command command)
+    private void inventory(Command command)
     {
-        if (command.hasSecondWord())
-        {
+        rucksack.printInventory();
+    }
 
-        }
+    private void collect(Command command)
+    {
+        rucksack.getItem();
     }
 
     private void lookAround(Command command)
@@ -161,10 +169,10 @@ public class Game
      */
     private void printHelp() 
     {
-        //TODO: Add Game Goal
-        System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the university.");
-        System.out.println();
+        System.out.println("You are in" + currentBrainArea + "/n");
+        System.out.println("your goal is to collect all the keys and");
+        System.out.println("tokens scattered throughout the brain /n");
+        System.out.println("then make your way to the Cerebellum.");
         System.out.println("Your command words are:");
         parser.showCommands();
     }
@@ -193,14 +201,11 @@ public class Game
         }
         else
         {
-
+            player.decreaseEnergy();
             currentBrainArea = nextBrainArea;
             System.out.println(currentBrainArea.getLongDescription());
         }
     }
-
-    //private boolean collect(Command command)
-
 
     public void addItem()
     {
@@ -215,6 +220,17 @@ public class Game
         }
     }
 
+    public void addEnergy()
+    {
+        if (player.collectFood)
+        {
+            player.increaseEnergy();
+            System.out.println("You at food and gained 10 energy." +
+                    " You now have " + player.getEnergy());
+
+        }
+    }
+
     public void removeItem()
     {
         if(player.exchangeItem)
@@ -225,6 +241,19 @@ public class Game
         else
         {
             System.out.println("no Item available to add");
+        }
+    }
+
+    public void dropItem()
+    {
+        if (player.dropItem)
+        {
+            System.out.println("You have dropped " + item + " from you're rucksack");
+            Rucksack removeItem = rucksack.removeItem;
+        }
+        else
+        {
+            System.out.println("what would you like to drop?");
         }
     }
 

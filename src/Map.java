@@ -1,3 +1,7 @@
+/**
+ *  Modified and extended by Kate Gordon and Sarah Cunningham
+ */
+
 public class Map
 {
     private BrainArea intracranialSpace, frontalLobe,parietalLobe, temporalLobe,
@@ -17,53 +21,53 @@ public class Map
 
     private void setItems()
     {
-        frontalLobe.setItems(Items.BANANA);
-        frontalLobe.setItems(Items.CHEESE);
+        frontalLobe.setItems(Items.FOOD);
+        frontalLobe.setItems(Items.FOOD);
         frontalLobe.setItems(Items.FRONTAL_KEY);
 
 
-        concentrationCentre.setItems(Items.CRACKERS);
+        concentrationCentre.setItems(Items.FOOD);
 
         writingCentre.setItems(Items.WRITING_TOKEN);
-        writingCentre.setItems(Items.SPINACH);
+        writingCentre.setItems(Items.FOOD);
 
         olfactoryCentre.setItems(Items.OLFACTORY_TOKEN);
-        olfactoryCentre.setItems(Items.BANANA);
+        olfactoryCentre.setItems(Items.FOOD);
 
-        parietalLobe.setItems(Items.CRACKERS);
-        parietalLobe.setItems(Items.CHEESE);
+        parietalLobe.setItems(Items.FOOD);
+        parietalLobe.setItems(Items.FOOD);
         parietalLobe.setItems(Items.PARIETAL_KEY);
 
-        hearingCentre.setItems(Items.BANANA);
+        hearingCentre.setItems(Items.FOOD);
         hearingCentre.setItems(Items.HEARING_TOKEN);
 
-        memoryCentre.setItems(Items.SPINACH);
+        memoryCentre.setItems(Items.FOOD);
         memoryCentre.setItems(Items.MEMORY_TOKEN);
 
-        musicCentre.setItems(Items.CRACKERS);
+        musicCentre.setItems(Items.FOOD);
         musicCentre.setItems(Items.MUSIC_TOKEN);
 
-        temporalLobe.setItems(Items.SPINACH);
+        temporalLobe.setItems(Items.FOOD);
         temporalLobe.setItems(Items.TEMPORAL_KEY);
-        temporalLobe.setItems(Items.CHEESE);
+        temporalLobe.setItems(Items.FOOD);
 
-        touchCentre.setItems(Items.BANANA);
+        touchCentre.setItems(Items.FOOD);
         touchCentre.setItems(Items.TOUCH_TOKEN);
 
-        tasteCentre.setItems(Items.CRACKERS);
+        tasteCentre.setItems(Items.FOOD);
         tasteCentre.setItems(Items.TASTE_TOKEN);
 
-        puzzleCentre.setItems(Items.BANANA);
+        puzzleCentre.setItems(Items.FOOD);
         puzzleCentre.setItems(Items.PUZZLE_TOKEN);
 
-        occipitalLobe.setItems(Items.SPINACH);
-        occipitalLobe.setItems(Items.CRACKERS);
+        occipitalLobe.setItems(Items.FOOD);
+        occipitalLobe.setItems(Items.FOOD);
         occipitalLobe.setItems(Items.OCCIPITAL_KEY);
 
-        visionCentre.setItems(Items.CHEESE);
+        visionCentre.setItems(Items.FOOD);
         visionCentre.setItems(Items.VISION_TOKEN);
 
-        readingCentre.setItems(Items.BANANA);
+        readingCentre.setItems(Items.FOOD);
         readingCentre.setItems(Items.READING_TOKEN);
 
         cerebellum.setItems(Items.TROPHY);
