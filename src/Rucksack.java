@@ -17,8 +17,9 @@ public class Rucksack
         item = new ArrayList<Items>();
     }
 
-    public void getItem()
+    public ArrayList<Items> getItem()
     {
+        return item;
     }
 
     void print()
