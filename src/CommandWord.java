@@ -10,7 +10,6 @@ public enum CommandWord
 {
     // A value for each command word along with its
     // corresponding user interface string.
-    // TODO: Add 2 more command words
     GO("go"), QUIT("quit"),
     COLLECT("collect"), INVENTORY("inventory"),
     LOOK("look"), RESTART("restart"),

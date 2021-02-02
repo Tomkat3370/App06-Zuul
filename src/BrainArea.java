@@ -50,8 +50,6 @@ public class BrainArea
         exits.put(direction, neighbor);
     }
 
-    // TODO method for getName
-
     /**
      * @return The short description of the room
      * (the one that was defined in the constructor).
@@ -67,7 +65,7 @@ public class BrainArea
      *     Exits: north west
      * @return A long description of this room
      */
-    public String getLongDescription()
+    public String getDescription()
     {
         return "You are " + description + ".\n" + getExitString();
     }
@@ -118,8 +116,13 @@ public class BrainArea
         return items;
     }
 
-
-    public void printItem()
+    public HashMap<String, BrainArea> getExit()
     {
+        return exits;
+    }
+
+    public String getName()
+    {
+        return name;
     }
 }

@@ -18,6 +18,7 @@ public class Player {
   public int energy;
   public boolean dropItem;
   public int increaseEnergy;
+  public int increaseScore;
 
   private String name;
   public int score;
@@ -66,5 +67,19 @@ public class Player {
   public void increaseEnergy()
   {
     increaseEnergy = energy + 10;
+  }
+
+  public void increaseScore()
+  {
+    increaseScore = score + 20;
+  }
+
+  public String toString()
+  {
+    return "Player {" +
+            "name: " + name +  "/n" +
+            "energy: " + energy + "/n" +
+            "score: " + score + "n/" +
+            "}";
   }
 }

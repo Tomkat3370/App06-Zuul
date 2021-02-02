@@ -41,4 +41,9 @@ public class Rucksack
     {
         inventory.printInventory();
     }
+
+    public Rucksack getInventory()
+    {
+        return inventory;
+    }
 }

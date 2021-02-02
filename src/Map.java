@@ -8,6 +8,7 @@ public class Map
             occipitalLobe, cerebellum, concentrationCentre, writingCentre,
             olfactoryCentre, hearingCentre, memoryCentre, musicCentre,
             touchCentre, tasteCentre, puzzleCentre, visionCentre, readingCentre;
+
     private BrainArea startBrainArea;
 
     /**
@@ -121,7 +122,7 @@ public class Map
         readingCentre = new BrainArea("You have entered the reading room. You must complete" +
                 "the puzzle to receive the token from here.");
 
-        cerebellum = new BrainArea("You have entered the cerebellun, the voluntary " +
+        cerebellum = new BrainArea("You have entered the Cerebellum, the voluntary " +
                 "movement coordinator. This is the final room in the game. CONGRATULATIONS YOU WIN!!");
 
         setExits();

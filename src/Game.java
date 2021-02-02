@@ -29,7 +29,6 @@ public class Game
 
 
     private ArrayList<Items> item;
-    private ArrayList<Rucksack> inventory;
         
     /**
      * Create the game and initialise its internal map.
@@ -41,7 +40,7 @@ public class Game
         currentBrainArea = map.getStartRoom();
         getPlayer();
         item = new ArrayList<Items>();
-        inventory = new ArrayList<Rucksack>();
+        rucksack = rucksack.getInventory();
 
         play();
     }
@@ -67,24 +66,24 @@ public class Game
         System.out.println("Thank you for playing.  Good bye.");
     }
 
-    private void getPlayer()
-    {
-        String name = parser.getString("Please enter your name >") ;
-        player = new Player(name);
-    }
-
     /**
      * Print out the opening message for the player.
      */
     private void printWelcome()
     {
-        //TODO: Add Instructions and Player Starting Status to print method
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
-        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
+        System.out.println("Welcome to BrainFog!");
+        System.out.println("BrainFog is a new, incredibly boring adventure game.");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
-        System.out.println(currentBrainArea.getLongDescription());
+        System.out.println(currentBrainArea.getDescription());
+    }
+
+    private void getPlayer()
+    {
+        String name = parser.getString("Please enter your name >") ;
+        player = new Player(name);
+        player.toString();
     }
 
     /**
@@ -97,7 +96,7 @@ public class Game
         boolean wantToQuit = false;
 
         CommandWord commandWord = command.getCommandWord();
-// TODO: Add new commands
+
         switch (commandWord) 
         {
             case UNKNOWN:
@@ -157,7 +156,7 @@ public class Game
 
     private void lookAround(Command command)
     {
-        currentBrainArea.printItem();
+        currentBrainArea.getItems();
     }
 
     // implementations of user commands:
@@ -173,6 +172,8 @@ public class Game
         System.out.println("your goal is to collect all the keys and");
         System.out.println("tokens scattered throughout the brain /n");
         System.out.println("then make your way to the Cerebellum.");
+        System.out.println("The directions you can go in from here are: /n" + currentBrainArea.getExit());
+        System.out.println();
         System.out.println("Your command words are:");
         parser.showCommands();
     }
@@ -202,41 +203,29 @@ public class Game
         else
         {
             player.decreaseEnergy();
+            player.increaseScore();
             currentBrainArea = nextBrainArea;
-            System.out.println(currentBrainArea.getLongDescription());
+            System.out.println(currentBrainArea.getDescription());
+            player.toString();
         }
     }
 
     public void addItem()
     {
-        if (player.collectItem)
-        {
-            System.out.println("You have stored " + item + " in you're rucksack");
-            Rucksack addItem = rucksack.addItem;
-        }
-        else
-        {
-            System.out.println("no Item available to add");
-        }
-    }
-
-    public void addEnergy()
-    {
         if (player.collectFood)
         {
             player.increaseEnergy();
             System.out.println("You at food and gained 10 energy." +
-                    " You now have " + player.getEnergy());
+                    " You now have " + player.toString());
 
         }
-    }
 
-    public void removeItem()
-    {
-        if(player.exchangeItem)
+        else if (player.collectItem)
         {
-            System.out.println("You have removed " + item + " from you're rucksack");
-            removeItem();
+            System.out.println("You have stored " + item + " in you're rucksack");
+            rucksack.addItem();
+            player.increaseScore();
+            player.toString();
         }
         else
         {
@@ -249,7 +238,8 @@ public class Game
         if (player.dropItem)
         {
             System.out.println("You have dropped " + item + " from you're rucksack");
-            Rucksack removeItem = rucksack.removeItem;
+            rucksack.removeItem();
+            player.toString();
         }
         else
         {
