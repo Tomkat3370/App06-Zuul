@@ -12,26 +12,29 @@ public class Player {
 
   public static final int MAX_ENERGY = 100;
   public static final int MIN_ENERGY = 0;
-  public boolean collectItem;
-  public boolean exchangeItem;
   public boolean collectFood;
   public int energy;
   public boolean dropItem;
   public int increaseEnergy;
   public int increaseScore;
+  public boolean collectKey;
+  public boolean collectVodka;
+  public boolean collectBoobyTrap;
+  public boolean collectTrophy;
 
   private String name;
   public int score;
   public int removeEnergy;
 
   private ArrayList <Items> item;
+  public int amount;
 
 
   public Player(String name)
   {
     this.name = name;
     score = 0;
-    energy = MAX_ENERGY;
+    energy = MAX_ENERGY - amount;
   }
 
   public int getEnergy()
@@ -44,7 +47,7 @@ public class Player {
     return score;
   }
 
-  public void setScore(int score)
+  public void setScore(int i)
   {
     this.score = score;
   }
@@ -59,27 +62,23 @@ public class Player {
     return name;
   }
 
-  public void decreaseEnergy()
+  public void decreaseEnergy(int i)
   {
-    removeEnergy = energy - 20;
+    setEnergy(getEnergy() - amount);
   }
 
-  public void increaseEnergy()
+  public void increaseEnergy(int i)
   {
-    increaseEnergy = energy + 10;
+    setEnergy(getEnergy() + amount);
   }
 
-  public void increaseScore()
+  public void increaseScore(int i)
   {
-    increaseScore = score + 20;
+    setScore(getScore() + amount);
   }
 
   public String toString()
   {
-    return "Player {" +
-            "name: " + name +  "/n" +
-            "energy: " + energy + "/n" +
-            "score: " + score + "n/" +
-            "}";
+    return "Name: " + getName() + " Energy: " + getEnergy() + " Score: " + getScore();
   }
 }

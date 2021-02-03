@@ -5,7 +5,7 @@
  */
 public class Main
 {
-    private static Game brainFog;
+    private static Game zuul;
 
     /**
      *
@@ -13,6 +13,6 @@ public class Main
      */
     public static void main(String[] args)
     {
-        brainFog = new Game();
+        zuul = new Game();
     }
 }

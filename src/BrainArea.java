@@ -125,4 +125,9 @@ public class BrainArea
     {
         return name;
     }
+
+    public void removeItem()
+    {
+        removeItem();
+    }
 }

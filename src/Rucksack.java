@@ -6,12 +6,12 @@ public class Rucksack
 {
     public Rucksack addItem;
     public Rucksack removeItem;
-    private Player player;
+    public Player player;
 
     private ArrayList<Items> item;
     private Rucksack inventory;
 
-    public Rucksack(Player player)
+    public Rucksack()
     {
         this.player = player;
         item = new ArrayList<Items>();

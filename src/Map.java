@@ -20,69 +20,16 @@ public class Map
         setItems();
     }
 
-    private void setItems()
-    {
-        frontalLobe.setItems(Items.FOOD);
-        frontalLobe.setItems(Items.FOOD);
-        frontalLobe.setItems(Items.FRONTAL_KEY);
-
-
-        concentrationCentre.setItems(Items.FOOD);
-
-        writingCentre.setItems(Items.WRITING_TOKEN);
-        writingCentre.setItems(Items.FOOD);
-
-        olfactoryCentre.setItems(Items.OLFACTORY_TOKEN);
-        olfactoryCentre.setItems(Items.FOOD);
-
-        parietalLobe.setItems(Items.FOOD);
-        parietalLobe.setItems(Items.FOOD);
-        parietalLobe.setItems(Items.PARIETAL_KEY);
-
-        hearingCentre.setItems(Items.FOOD);
-        hearingCentre.setItems(Items.HEARING_TOKEN);
-
-        memoryCentre.setItems(Items.FOOD);
-        memoryCentre.setItems(Items.MEMORY_TOKEN);
-
-        musicCentre.setItems(Items.FOOD);
-        musicCentre.setItems(Items.MUSIC_TOKEN);
-
-        temporalLobe.setItems(Items.FOOD);
-        temporalLobe.setItems(Items.TEMPORAL_KEY);
-        temporalLobe.setItems(Items.FOOD);
-
-        touchCentre.setItems(Items.FOOD);
-        touchCentre.setItems(Items.TOUCH_TOKEN);
-
-        tasteCentre.setItems(Items.FOOD);
-        tasteCentre.setItems(Items.TASTE_TOKEN);
-
-        puzzleCentre.setItems(Items.FOOD);
-        puzzleCentre.setItems(Items.PUZZLE_TOKEN);
-
-        occipitalLobe.setItems(Items.FOOD);
-        occipitalLobe.setItems(Items.FOOD);
-        occipitalLobe.setItems(Items.OCCIPITAL_KEY);
-
-        visionCentre.setItems(Items.FOOD);
-        visionCentre.setItems(Items.VISION_TOKEN);
-
-        readingCentre.setItems(Items.FOOD);
-        readingCentre.setItems(Items.READING_TOKEN);
-
-        cerebellum.setItems(Items.TROPHY);
-    }
 
     /**
      * Create all the primary rooms and link their exits together.
      */
     private void createRooms()
     {
-        intracranialSpace = new BrainArea("You are in the Intracranial Space of the Brain." +
+        intracranialSpace = new BrainArea("You are in the Intracranial Space of the Brain. /n" +
                 "From here you can access all areas of the Brain.");
 
-        frontalLobe = new BrainArea("You are in the frontal lobe. This is the control " +
+        frontalLobe = new BrainArea("You are in the frontal lobe. This is the control /n" +
                 "panel of personality and communication. From here you can access the concentration, " +
                 "writing and olfactory centres of the Brain");
         //Rooms inside frontalLobe
@@ -173,6 +120,41 @@ public class Map
         readingCentre.setExit("back", occipitalLobe);
 
         cerebellum.setExit("back", intracranialSpace);
+    }
+
+    private void setItems()
+    {
+        frontalLobe.setItems(Items.KEY);
+
+        concentrationCentre.setItems(Items.FOOD);
+
+        writingCentre.setItems(Items.VODKA);
+
+        olfactoryCentre.setItems(Items.BOOBY_TRAP);
+
+        parietalLobe.setItems(Items.KEY);
+
+        hearingCentre.setItems(Items.FOOD);
+
+        memoryCentre.setItems(Items.BOOBY_TRAP);
+
+        musicCentre.setItems(Items.VODKA);
+
+        temporalLobe.setItems(Items.KEY);
+
+        touchCentre.setItems(Items.BOOBY_TRAP);
+
+        tasteCentre.setItems(Items.VODKA);
+
+        puzzleCentre.setItems(Items.FOOD);
+
+        occipitalLobe.setItems(Items.KEY);
+
+        visionCentre.setItems(Items.VODKA);
+
+        readingCentre.setItems(Items.FOOD);
+
+        cerebellum.setItems(Items.TROPHY);
     }
 
     public BrainArea getStartRoom()

@@ -29,7 +29,7 @@ public class Game
 
 
     private ArrayList<Items> item;
-        
+
     /**
      * Create the game and initialise its internal map.
      */
@@ -40,7 +40,7 @@ public class Game
         currentBrainArea = map.getStartRoom();
         getPlayer();
         item = new ArrayList<Items>();
-        rucksack = rucksack.getInventory();
+        rucksack = new Rucksack();
 
         play();
     }
@@ -66,24 +66,24 @@ public class Game
         System.out.println("Thank you for playing.  Good bye.");
     }
 
+    private void getPlayer()
+    {
+        String name = parser.getString("Please enter your name >") ;
+        player = new Player(name);
+    }
+
     /**
      * Print out the opening message for the player.
      */
     private void printWelcome()
     {
         System.out.println();
-        System.out.println("Welcome to BrainFog!");
+        System.out.println(player.getName() + "Welcome to BrainFog!");
         System.out.println("BrainFog is a new, incredibly boring adventure game.");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
+        System.out.println(player.toString());
         System.out.println();
         System.out.println(currentBrainArea.getDescription());
-    }
-
-    private void getPlayer()
-    {
-        String name = parser.getString("Please enter your name >") ;
-        player = new Player(name);
-        player.toString();
     }
 
     /**
@@ -112,7 +112,7 @@ public class Game
                 break;
 
             case LOOK:
-                lookAround(command);
+                look(command);
                 break;
 
             case QUIT:
@@ -141,7 +141,16 @@ public class Game
 
     private void drop(Command command)
     {
-        rucksack.removeItem();
+        if (player.dropItem)
+        {
+            System.out.println("You have dropped " + item + " from you're rucksack");
+            rucksack.removeItem();
+            System.out.println(player.toString());
+        }
+        else
+        {
+            System.out.println("what would you like to drop?");
+        }
     }
 
     private void inventory(Command command)
@@ -151,12 +160,52 @@ public class Game
 
     private void collect(Command command)
     {
-        rucksack.getItem();
+        if (player.collectFood)
+        {
+            player.increaseEnergy(10);
+            System.out.println("You ate food and gained 10 energy."
+                    + player.toString());
+        }
+        else if (player.collectKey)
+        {
+            System.out.println("You have collected " + item + " in you're rucksack");
+            rucksack.addItem();
+            player.increaseScore(20);
+            System.out.println(player.toString());
+        }
+        else if (player.collectVodka)
+        {
+            System.out.println("You drank " + item + "and became intoxicated");
+            System.out.println("This has lost you 10 energy");
+            player.decreaseEnergy(-10);
+            System.out.println(player.toString());
+        }
+        else if (player.collectBoobyTrap)
+        {
+            System.out.println("It's a Trap!");
+            System.out.println("You lost 20 energy!");
+            player.decreaseEnergy(-20);
+            System.out.println(player.toString());
+        }
+        else if (player.collectTrophy)
+        {
+            System.out.println("Congratulations!!");
+            System.out.println("You have WON the Game!!");
+            player.increaseScore(100);
+            System.out.println(player.toString());
+            System.out.println();
+            System.out.println("To play again RESET the game.");
+        }
+        else
+        {
+            System.out.println("no Item available to collect");
+        }
+
     }
 
-    private void lookAround(Command command)
+    private void look(Command command)
     {
-        currentBrainArea.getItems();
+        System.out.println("You have found" + currentBrainArea.getItems());
     }
 
     // implementations of user commands:
@@ -173,6 +222,7 @@ public class Game
         System.out.println("tokens scattered throughout the brain /n");
         System.out.println("then make your way to the Cerebellum.");
         System.out.println("The directions you can go in from here are: /n" + currentBrainArea.getExit());
+        System.out.println(player.toString());
         System.out.println();
         System.out.println("Your command words are:");
         parser.showCommands();
@@ -187,7 +237,7 @@ public class Game
         if(!command.hasSecondWord()) 
         {
             // if there is no second word, we don't know where to go...
-            System.out.println("Go where?");
+            System.out.println("Where would you like to GO?");
             return;
         }
 
@@ -202,48 +252,11 @@ public class Game
         }
         else
         {
-            player.decreaseEnergy();
-            player.increaseScore();
             currentBrainArea = nextBrainArea;
+            player.decreaseEnergy(-20);
+            player.increaseScore(20);
             System.out.println(currentBrainArea.getDescription());
-            player.toString();
-        }
-    }
-
-    public void addItem()
-    {
-        if (player.collectFood)
-        {
-            player.increaseEnergy();
-            System.out.println("You at food and gained 10 energy." +
-                    " You now have " + player.toString());
-
-        }
-
-        else if (player.collectItem)
-        {
-            System.out.println("You have stored " + item + " in you're rucksack");
-            rucksack.addItem();
-            player.increaseScore();
-            player.toString();
-        }
-        else
-        {
-            System.out.println("no Item available to add");
-        }
-    }
-
-    public void dropItem()
-    {
-        if (player.dropItem)
-        {
-            System.out.println("You have dropped " + item + " from you're rucksack");
-            rucksack.removeItem();
-            player.toString();
-        }
-        else
-        {
-            System.out.println("what would you like to drop?");
+            System.out.println(player.toString());
         }
     }
 
