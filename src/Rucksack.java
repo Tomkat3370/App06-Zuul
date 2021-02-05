@@ -4,22 +4,15 @@ import java.util.ArrayList;
  */
 public class Rucksack
 {
-    public Rucksack addItem;
-    public Rucksack removeItem;
-    public Player player;
-
-    private ArrayList<Items> item;
-    private Rucksack inventory;
+      private final ArrayList<Items> item;
 
     public Rucksack()
     {
-        this.player = player;
-        item = new ArrayList<Items>();
+        item = new ArrayList<>();
     }
 
-    public ArrayList<Items> getItem()
+    public void getItem()
     {
-        return item;
     }
 
     void print()
@@ -29,21 +22,16 @@ public class Rucksack
 
     public void addItem()
     {
-        inventory.addItem();
+        getItem();
     }
 
     public void removeItem()
     {
-        inventory.removeItem();
+        removeItem();
     }
 
     public void printInventory()
     {
-        inventory.printInventory();
-    }
-
-    public Rucksack getInventory()
-    {
-        return inventory;
+       System.out.println("Your rucksack contains" + item.toString());
     }
 }

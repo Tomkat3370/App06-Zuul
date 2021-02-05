@@ -10,21 +10,13 @@ import java.util.ArrayList;
  */
 public class Player {
 
-  public static final int MAX_ENERGY = 100;
-  public static final int MIN_ENERGY = 0;
-  public boolean collectFood;
   public int energy;
   public boolean dropItem;
-  public int increaseEnergy;
-  public int increaseScore;
-  public boolean collectKey;
-  public boolean collectVodka;
-  public boolean collectBoobyTrap;
-  public boolean collectTrophy;
+  public boolean collectItem;
 
   private String name;
   public int score;
-  public int removeEnergy;
+
 
   private ArrayList <Items> item;
   public int amount;
@@ -34,7 +26,7 @@ public class Player {
   {
     this.name = name;
     score = 0;
-    energy = MAX_ENERGY - amount;
+    energy = 100;
   }
 
   public int getEnergy()
@@ -64,21 +56,27 @@ public class Player {
 
   public void decreaseEnergy(int i)
   {
-    setEnergy(getEnergy() - amount);
+    score = score - amount;
   }
 
   public void increaseEnergy(int i)
   {
-    setEnergy(getEnergy() + amount);
+    energy = energy + amount;
   }
 
   public void increaseScore(int i)
   {
-    setScore(getScore() + amount);
+    score = score + amount;
+  }
+
+  public ArrayList<Items> collectItem()
+  {
+    return item;
   }
 
   public String toString()
   {
     return "Name: " + getName() + " Energy: " + getEnergy() + " Score: " + getScore();
   }
+
 }

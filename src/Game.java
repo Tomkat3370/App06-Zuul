@@ -21,14 +21,14 @@ import java.util.ArrayList;
 
 public class Game 
 {
-    private Parser parser;
+    private final Parser parser;
     private BrainArea currentBrainArea;
-    private Map map;
+    private final Map map;
     private Player player;
-    private Rucksack rucksack;
+    private final Rucksack rucksack;
 
 
-    private ArrayList<Items> item;
+    private final ArrayList<Items> item;
 
     /**
      * Create the game and initialise its internal map.
@@ -39,8 +39,9 @@ public class Game
         map = new Map();
         currentBrainArea = map.getStartRoom();
         getPlayer();
-        item = new ArrayList<Items>();
         rucksack = new Rucksack();
+
+        item = new ArrayList<>();
 
         play();
     }
@@ -81,6 +82,7 @@ public class Game
         System.out.println(player.getName() + "Welcome to BrainFog!");
         System.out.println("BrainFog is a new, incredibly boring adventure game.");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
+        System.out.println();
         System.out.println(player.toString());
         System.out.println();
         System.out.println(currentBrainArea.getDescription());
@@ -158,47 +160,24 @@ public class Game
         rucksack.printInventory();
     }
 
-    private void collect(Command command)
+    private boolean collect(Command command)
     {
-        if (player.collectFood)
+        if (command.hasSecondWord())
         {
-            player.increaseEnergy(10);
-            System.out.println("You ate food and gained 10 energy."
-                    + player.toString());
-        }
-        else if (player.collectKey)
-        {
-            System.out.println("You have collected " + item + " in you're rucksack");
+
             rucksack.addItem();
+            currentBrainArea.removeItem();
+            System.out.println("you have collected " + item);
             player.increaseScore(20);
-            System.out.println(player.toString());
-        }
-        else if (player.collectVodka)
-        {
-            System.out.println("You drank " + item + "and became intoxicated");
-            System.out.println("This has lost you 10 energy");
-            player.decreaseEnergy(-10);
-            System.out.println(player.toString());
-        }
-        else if (player.collectBoobyTrap)
-        {
-            System.out.println("It's a Trap!");
-            System.out.println("You lost 20 energy!");
-            player.decreaseEnergy(-20);
-            System.out.println(player.toString());
-        }
-        else if (player.collectTrophy)
-        {
-            System.out.println("Congratulations!!");
-            System.out.println("You have WON the Game!!");
-            player.increaseScore(100);
-            System.out.println(player.toString());
-            System.out.println();
-            System.out.println("To play again RESET the game.");
+            player.increaseEnergy(10);
+            return true;
         }
         else
         {
-            System.out.println("no Item available to collect");
+
+            System.out.println("There is nothing here!");
+            player.decreaseEnergy(10);
+            return false;
         }
 
     }
@@ -217,11 +196,11 @@ public class Game
      */
     private void printHelp() 
     {
-        System.out.println("You are in" + currentBrainArea + "/n");
-        System.out.println("your goal is to collect all the keys and");
-        System.out.println("tokens scattered throughout the brain /n");
+        System.out.println("You are in" + currentBrainArea.getDescription());
+        System.out.println("your goal is to collect all the keys");
+        System.out.println("scattered throughout the brain ");
         System.out.println("then make your way to the Cerebellum.");
-        System.out.println("The directions you can go in from here are: /n" + currentBrainArea.getExit());
+        System.out.println("The directions you can go in from here are: " + currentBrainArea.getExit());
         System.out.println(player.toString());
         System.out.println();
         System.out.println("Your command words are:");
