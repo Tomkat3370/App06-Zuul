@@ -14,8 +14,7 @@ public enum CommandWord
     COLLECT("collect"), INVENTORY("inventory"),
     LOOK("look"), RESTART("restart"),
     HELP("help"), UNKNOWN("unknown"),
-    DROP("drop");
-    
+    DROP("drop"), USE("use");
     // The command string.
     private String commandString;
     

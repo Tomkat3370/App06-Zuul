@@ -11,8 +11,9 @@ public class Rucksack
         item = new ArrayList<>();
     }
 
-    public void getItem()
+    public Items getItem()
     {
+        return null;
     }
 
     void print()
@@ -27,7 +28,7 @@ public class Rucksack
 
     public void removeItem()
     {
-        removeItem();
+        this.item.remove(item);
     }
 
     public void printInventory()

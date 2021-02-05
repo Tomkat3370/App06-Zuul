@@ -10,6 +10,9 @@ import java.util.ArrayList;
  */
 public class Player {
 
+  private static final int MIN_ENERGY = 0;
+  public static final int MAX_ENERGY = 100;
+
   public int energy;
   public boolean dropItem;
   public boolean collectItem;
@@ -20,6 +23,7 @@ public class Player {
 
   private ArrayList <Items> item;
   public int amount;
+  private boolean dead;
 
 
   public Player(String name)
@@ -27,6 +31,8 @@ public class Player {
     this.name = name;
     score = 0;
     energy = 100;
+
+    dead = false;
   }
 
   public int getEnergy()
@@ -36,10 +42,10 @@ public class Player {
 
   public int getScore()
   {
-    return score;
+    return this.score;
   }
 
-  public void setScore(int i)
+  public void setScore(int score)
   {
     this.score = score;
   }
@@ -54,17 +60,30 @@ public class Player {
     return name;
   }
 
-  public void decreaseEnergy(int i)
+  public void setName(String name)
   {
-    score = score - amount;
+    this.name = name;
   }
 
-  public void increaseEnergy(int i)
+  public void decreaseEnergy(int decrease)
   {
-    energy = energy + amount;
+    this.energy -= decrease;
+    if(energy < MIN_ENERGY)
+    {
+      dead = true;
+    }
   }
 
-  public void increaseScore(int i)
+  public void increaseEnergy(int increase)
+  {
+    this.energy += increase;
+    if(energy > MIN_ENERGY)
+    {
+      dead = false;
+    }
+  }
+
+  public void increaseScore(int amount)
   {
     score = score + amount;
   }
@@ -72,6 +91,19 @@ public class Player {
   public ArrayList<Items> collectItem()
   {
     return item;
+  }
+
+  /**
+   * This checks to see if the player is dead
+   */
+  public boolean isDead()
+  {
+    return this.dead;
+  }
+
+  public void setDead()
+  {
+    this.dead = true;
   }
 
   public String toString()

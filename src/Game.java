@@ -137,12 +137,18 @@ public class Game
                 inventory(command);
                 break;
 
+            case USE:
+                    use(command);
+                break;
+
         }
         return wantToQuit;
     }
 
     private void drop(Command command)
     {
+        Items item = rucksack.getItem();
+
         if (player.dropItem)
         {
             System.out.println("You have dropped " + item + " from you're rucksack");
@@ -182,6 +188,46 @@ public class Game
             player.decreaseEnergy(10);
         }
 
+    }
+
+    private void use(Command command)
+    {
+        if (rucksack.getItem() == null)
+        {
+            System.out.println(" you are carrying nothing!");
+            rucksack.printInventory();
+        } else
+        {
+            Items item = rucksack.getItem();
+
+            if (item == Items.FOOD)
+            {
+                player.increaseEnergy(20);
+                player.increaseScore(10);
+                System.out.println("You ate food, increasing your energy by 20");
+            } else if (item == Items.VODKA)
+            {
+                player.decreaseEnergy(15);
+                System.out.println("You drank vodka, decreasing your energy by 15");
+            } else if (item == Items.BOOBY_TRAP)
+            {
+                player.decreaseEnergy(25);
+                System.out.println("You fell in a booby-trap, decreasing your energy by 25");
+            } else if (item == Items.KEY)
+            {
+                player.increaseScore(50);
+                System.out.println("You have unlocked the next Brain Area ");
+                System.out.println("and increased your score by 50");
+            } else if (item == Items.TROPHY)
+            {
+                player.increaseScore(1000);
+                System.out.println("Congratulations You WIN!!!");
+            } else
+            {
+                System.out.println("What would you like to use?");
+            }
+
+        }
     }
 
     private void look(Command command)
