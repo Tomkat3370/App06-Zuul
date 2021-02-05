@@ -24,7 +24,7 @@ public class BrainArea
     // String is the key to a room in that direction
     // east would be an exit that goes to the Room
     private HashMap<String, BrainArea> exits;
-    private Items items;
+    private Items item;
 
 
     /**
@@ -39,6 +39,7 @@ public class BrainArea
         exits = new HashMap<>();
         name = null;
     }
+
 
     /**
      * Define an exit from this room.
@@ -98,22 +99,25 @@ public class BrainArea
         return exits.get(direction);
     }
 
-
-
-    public void printPossibleItems()
+    public void printSetItems()
     {
         System.out.println("Items that cam be found in this room are: "
-                + items);
+                + item);
     }
 
-    public void setItems(Items items)
+    public void setItem(Items item)
     {
-        this.items = items;
+        this.item = item;
     }
 
-    public Items getItems()
+    public Items getItem()
     {
-        return items;
+        return item;
+    }
+
+    public void removeItem()
+    {
+        item = null;
     }
 
     public HashMap<String, BrainArea> getExit()
@@ -125,9 +129,9 @@ public class BrainArea
     {
         return name;
     }
-//TODO START HERE!!!!!!!!!!!
-    public void removeItem()
+
+    public void addItem()
     {
-        removeItem();
+        addItem();
     }
 }

@@ -124,37 +124,37 @@ public class Map
 
     private void setItems()
     {
-        frontalLobe.setItems(Items.KEY);
+        frontalLobe.setItem(Items.KEY);
 
-        concentrationCentre.setItems(Items.FOOD);
+        concentrationCentre.setItem(Items.FOOD);
 
-        writingCentre.setItems(Items.VODKA);
+        writingCentre.setItem(Items.VODKA);
 
-        olfactoryCentre.setItems(Items.BOOBY_TRAP);
+        olfactoryCentre.setItem(Items.BOOBY_TRAP);
 
-        parietalLobe.setItems(Items.KEY);
+        parietalLobe.setItem(Items.KEY);
 
-        hearingCentre.setItems(Items.FOOD);
+        hearingCentre.setItem(Items.FOOD);
 
-        memoryCentre.setItems(Items.BOOBY_TRAP);
+        memoryCentre.setItem(Items.BOOBY_TRAP);
 
-        musicCentre.setItems(Items.VODKA);
+        musicCentre.setItem(Items.VODKA);
 
-        temporalLobe.setItems(Items.KEY);
+        temporalLobe.setItem(Items.KEY);
 
-        touchCentre.setItems(Items.BOOBY_TRAP);
+        touchCentre.setItem(Items.BOOBY_TRAP);
 
-        tasteCentre.setItems(Items.VODKA);
+        tasteCentre.setItem(Items.VODKA);
 
-        puzzleCentre.setItems(Items.FOOD);
+        puzzleCentre.setItem(Items.FOOD);
 
-        occipitalLobe.setItems(Items.KEY);
+        occipitalLobe.setItem(Items.KEY);
 
-        visionCentre.setItems(Items.VODKA);
+        visionCentre.setItem(Items.VODKA);
 
-        readingCentre.setItems(Items.FOOD);
+        readingCentre.setItem(Items.FOOD);
 
-        cerebellum.setItems(Items.TROPHY);
+        cerebellum.setItem(Items.TROPHY);
     }
 
     public BrainArea getStartRoom()

@@ -148,6 +148,7 @@ public class Game
             System.out.println("You have dropped " + item + " from you're rucksack");
             rucksack.removeItem();
             System.out.println(player.toString());
+            currentBrainArea.addItem();
         }
         else
         {
@@ -160,31 +161,32 @@ public class Game
         rucksack.printInventory();
     }
 
-    private boolean collect(Command command)
+    private void collect(Command command)
     {
+        Items item = currentBrainArea.getItem();
+
         if (command.hasSecondWord())
         {
-
+            player.increaseScore(20);
+            player.increaseEnergy(10);
+            player.collectItem();
             rucksack.addItem();
             currentBrainArea.removeItem();
             System.out.println("you have collected " + item);
-            player.increaseScore(20);
-            player.increaseEnergy(10);
-            return true;
+            currentBrainArea.removeItem();
         }
         else
         {
 
             System.out.println("There is nothing here!");
             player.decreaseEnergy(10);
-            return false;
         }
 
     }
 
     private void look(Command command)
     {
-        System.out.println("You have found" + currentBrainArea.getItems());
+        System.out.println("You have found " + currentBrainArea.getItem());
     }
 
     // implementations of user commands:
@@ -232,7 +234,7 @@ public class Game
         else
         {
             currentBrainArea = nextBrainArea;
-            player.decreaseEnergy(-20);
+            player.decreaseEnergy(20);
             player.increaseScore(20);
             System.out.println(currentBrainArea.getDescription());
             System.out.println(player.toString());
