@@ -125,7 +125,7 @@ public class BrainArea
     {
         return name;
     }
-
+//TODO START HERE!!!!!!!!!!!
     public void removeItem()
     {
         removeItem();
