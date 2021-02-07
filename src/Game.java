@@ -126,10 +126,6 @@ public class Game
                 collect(command);
                 break;
 
-            case DROP:
-                drop(command);
-                break;
-
             case INVENTORY:
                 inventory(command);
                 break;
@@ -142,24 +138,9 @@ public class Game
         return wantToQuit;
     }
 
-    private void drop(Command command)
-    {
-        if(!command.hasSecondWord())
-        {
-            System.out.println("what would you like to drop?");
-        }
-        else
-        {
-            System.out.println("You have dropped " + item + " from you're rucksack");
-            rucksack.removeItem();
-            System.out.println(player.toString());
-            currentBrainArea.addItem(); ;
-        }
-    }
-
     private void inventory(Command command)
     {
-        player.showItems();
+        System.out.println(player.showInventory());
     }
 
     private void collect(Command command)
@@ -167,6 +148,7 @@ public class Game
         item = currentBrainArea.getItem();
         item.toString();
         String object = command.getSecondWord();
+        player.toString();
 
         if (object == null)
         {
@@ -187,44 +169,53 @@ public class Game
 
     private void use(Command command)
     {
-        if (rucksack.getItem() == null)
+        if (player.isCarrying(Items.NONE))
         {
             System.out.println(" you are carrying nothing!");
-            rucksack.printInventory();
-        } else
+            player.showInventory();
+            player.toString();
+        }
+        else if (player.isCarrying(Items.FOOD))
         {
-            if (item == Items.FOOD)
-            {
-                player.increaseEnergy(20);
-                player.increaseScore(10);
-                System.out.println("You ate food, increasing your energy by 20");
-            }
-            else if (item == Items.VODKA)
-            {
-                player.decreaseEnergy(15);
-                System.out.println("You drank vodka, decreasing your energy by 15");
-            }
-            else if (item == Items.BOOBY_TRAP)
-            {
-                player.decreaseEnergy(25);
-                System.out.println("You fell in a booby-trap, decreasing your energy by 25");
-            }
-            else if (item == Items.KEY)
-            {
-                player.increaseScore(50);
-                System.out.println("You have unlocked the next Brain Area ");
-                System.out.println("and increased your score by 50");
-            }
-            else if (item == Items.TROPHY)
-            {
-                player.increaseScore(1000);
-                System.out.println("Congratulations You WIN!!!");
-            }
-            else
-            {
-                System.out.println("What would you like to use?");
-            }
-
+            player.increaseEnergy(20);
+            player.increaseScore(10);
+            System.out.println("You ate food, increasing your energy by 20");
+            player.removeItem();
+            player.toString();
+        }
+        else if (player.isCarrying(Items.VODKA))
+        {
+            player.decreaseEnergy(15);
+            System.out.println("You drank vodka, decreasing your energy by 15");
+            player.removeItem();
+            player.toString();
+        }
+        else if (player.isCarrying(Items.BOOBY_TRAP))
+        {
+            player.decreaseEnergy(25);
+            System.out.println("You fell in a booby-trap, decreasing your energy by 25");
+            player.removeItem();
+            player.toString();
+        }
+        else if (player.isCarrying(Items.KEY))
+        {
+            player.increaseScore(50);
+            System.out.println("You have unlocked the next Brain Area ");
+            System.out.println("and increased your score by 50");
+            player.removeItem();
+            player.toString();
+        }
+        else if (player.isCarrying(Items.TROPHY))
+        {
+            player.increaseScore(1000);
+            System.out.println("Congratulations You WIN!!!");
+            player.toString();
+        }
+        else
+        {
+            System.out.println("What would you like to use?");
+            player.toString();
+            player.showInventory();
         }
     }
 
@@ -232,8 +223,6 @@ public class Game
     {
         System.out.println("You have found " + currentBrainArea.getItem());
     }
-
-    // implementations of user commands:
 
     /**
      * Print out some help information.

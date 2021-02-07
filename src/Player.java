@@ -119,7 +119,7 @@ public class Player {
     return item.contains(items);
   }
 
-  public String showItems()
+  public String showInventory()
   {
     String inventory = "\n You are carrying: ";
     int count = 0;
