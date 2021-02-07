@@ -1,8 +1,8 @@
 /**
- *  This class is the main class of the "World of Zuul" application. 
- *  "World of Zuul" is a very simple, text based adventure game.  Users 
- *  can walk around some scenery. That's all. It should really be extended 
- *  to make it more interesting!
+ *  This class is the main class of the "Brain Fog" application.
+ *  "Brain Fog" is a very simple, text based adventure game.  Users
+ *  can walk around inside the human brain and collect items. Making
+ *  their way to the cerebellum to get the trophy and win the game
  * 
  *  To play this game, create an instance of this class and call the "play"
  *  method.
@@ -146,9 +146,9 @@ public class Game
     private void collect(Command command)
     {
         item = currentBrainArea.getItem();
-        item.toString();
+        System.out.println(item.toString());
         String object = command.getSecondWord();
-        player.toString();
+        System.out.println(player.toString());
 
         if (object == null)
         {
@@ -173,7 +173,7 @@ public class Game
         {
             System.out.println(" you are carrying nothing!");
             player.showInventory();
-            player.toString();
+            System.out.println(player.toString() + player.showInventory());
         }
         else if (player.isCarrying(Items.FOOD))
         {
@@ -181,21 +181,21 @@ public class Game
             player.increaseScore(10);
             System.out.println("You ate food, increasing your energy by 20");
             player.removeItem();
-            player.toString();
+            System.out.println(player.toString() + player.showInventory());
         }
         else if (player.isCarrying(Items.VODKA))
         {
             player.decreaseEnergy(15);
             System.out.println("You drank vodka, decreasing your energy by 15");
             player.removeItem();
-            player.toString();
+            System.out.println(player.toString() + player.showInventory());
         }
         else if (player.isCarrying(Items.BOOBY_TRAP))
         {
             player.decreaseEnergy(25);
             System.out.println("You fell in a booby-trap, decreasing your energy by 25");
             player.removeItem();
-            player.toString();
+            System.out.println(player.toString() + player.showInventory());
         }
         else if (player.isCarrying(Items.KEY))
         {
@@ -203,19 +203,18 @@ public class Game
             System.out.println("You have unlocked the next Brain Area ");
             System.out.println("and increased your score by 50");
             player.removeItem();
-            player.toString();
+            System.out.println(player.toString() + player.showInventory());
         }
         else if (player.isCarrying(Items.TROPHY))
         {
             player.increaseScore(1000);
             System.out.println("Congratulations You WIN!!!");
-            player.toString();
+            System.out.println(player.toString() + player.showInventory());
         }
         else
         {
             System.out.println("What would you like to use?");
-            player.toString();
-            player.showInventory();
+            System.out.println(player.toString() + player.showInventory());
         }
     }
 
@@ -235,7 +234,8 @@ public class Game
         System.out.println("your goal is to collect all the keys");
         System.out.println("scattered throughout the brain ");
         System.out.println("then make your way to the Cerebellum.");
-        System.out.println("The directions you can go in from here are: " + currentBrainArea.getExit());
+        System.out.println("The directions you can go in from here are: "
+                + currentBrainArea.getExit());
         System.out.println(player.toString());
         System.out.println();
         System.out.println("Your command words are:");
