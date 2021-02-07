@@ -51,16 +51,7 @@ public class BrainArea
         exits.put(direction, neighbor);
     }
 
-    /**
-     * @return The short description of the room
-     * (the one that was defined in the constructor).
-     */
-    public String getShortDescription()
-    {
-        return description;
-    }
-
-    /**
+     /**
      * Return a description of the room in the form:
      *     You are in the kitchen.
      *     Exits: north west

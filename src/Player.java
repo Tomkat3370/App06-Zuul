@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * This class is all about the player, in "world of zuul".
  * The idea is to create a player, select a name, make sure energy levels are ok.
@@ -19,9 +21,7 @@ public class Player {
   private String name;
   private int score;
   private boolean dead;
-  private Items item;
-
- private Rucksack rucksack;
+  private ArrayList<Items> item;
 
 
 
@@ -30,14 +30,9 @@ public class Player {
     this.name = name;
     score = 0;
     energy = 100;
-    getRucksack();
+    item = new ArrayList<Items>();
 
     dead = false;
-  }
-
-  private Rucksack getRucksack()
-  {
-    return rucksack;
   }
 
   public int getEnergy()
@@ -48,16 +43,6 @@ public class Player {
   public int getScore()
   {
     return this.score;
-  }
-
-  public void setScore(int score)
-  {
-    this.score = score;
-  }
-
-  public void setEnergy(int energy)
-  {
-    this.energy = energy;
   }
 
   public String getName()
@@ -107,14 +92,49 @@ public class Player {
     this.dead = true;
   }
 
-  public void setRucksack()
-  {
-    this.rucksack = rucksack;
-  }
-
   public String toString()
   {
-    return "Name: " + getName() + "\nEnergy: " + getEnergy() + "\nScore: " + getScore() + "\n Inventory: \n" + rucksack;
+    return "Name: " + getName() + "\nEnergy: " + getEnergy() + "\nScore: " + getScore();
+  }
+
+  public ArrayList<Items> getItem()
+  {
+    return item;
+  }
+
+  public void addItem(Items items)
+  {
+    if (!isCarrying(items))
+    {
+      this.item.add(items);
+    }
+  }
+  public void removeItem()
+  {
+    this.item.remove(item);
+  }
+
+  public boolean isCarrying(Items items)
+  {
+    return item.contains(items);
+  }
+
+  public String showItems()
+  {
+    String inventory = "\n You are carrying: ";
+    int count = 0;
+
+    if(item.size() == 0)
+      inventory += "nothing!";
+    else
+    {
+      for(Items item : item)
+      {
+        count++;
+        inventory += item;
+      }
+    }
+    return inventory;
   }
 
   /**

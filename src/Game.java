@@ -36,6 +36,7 @@ public class Game
         parser = new Parser();
         map = new Map();
         currentBrainArea = map.getStartRoom();
+
         getPlayer();
 
         play();
@@ -158,16 +159,30 @@ public class Game
 
     private void inventory(Command command)
     {
-        rucksack.printInventory();
+        player.showItems();
     }
 
     private void collect(Command command)
     {
+        item = currentBrainArea.getItem();
+        item.toString();
+        String object = command.getSecondWord();
+
+        if (object == null)
+        {
+            System.out.println("what would you like to collect");
+        }
+        else if(item == Items.NONE)
+        {
+            System.out.println("there is nothing here to collect");
+        }
+        else
+        {
+            currentBrainArea.removeItem();
+            player.addItem(item);
             player.increaseScore(20);
-            player.increaseEnergy(10);
-            currentBrainArea.removeItem();
-            System.out.println("you have collected " + item);
-            currentBrainArea.removeItem();
+            System.out.println("You have collected " + item);
+        }
     }
 
     private void use(Command command)
