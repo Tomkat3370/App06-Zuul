@@ -89,8 +89,9 @@ public class BrainArea
     }
 
     /**
-     * Return the room that is reached if we go from this room in direction
-     * "direction". If there is no room in that direction, return null.
+     * Return the room that is reached if we go from this room
+     * in direction "direction". If there is no room in that
+     * direction, return null.
      * @param direction The exit's direction.
      * @return The room in the given direction.
      */
@@ -101,7 +102,7 @@ public class BrainArea
 
     public void printSetItems()
     {
-        System.out.println("Items that cam be found in this room are: "
+        System.out.println("Items that cam be found in \nthis room are: "
                 + item);
     }
 
@@ -117,7 +118,7 @@ public class BrainArea
 
     public void removeItem()
     {
-        item = null;
+        item = Items.NONE;
     }
 
     public HashMap<String, BrainArea> getExit()

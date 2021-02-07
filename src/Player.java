@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 /**
  * This class is all about the player, in "world of zuul".
  * The idea is to create a player, select a name, make sure energy levels are ok.
@@ -23,7 +21,7 @@ public class Player {
   private boolean dead;
   private Items item;
 
- private ArrayList <Items> rucksack;
+ private Rucksack rucksack;
 
 
 
@@ -32,12 +30,14 @@ public class Player {
     this.name = name;
     score = 0;
     energy = 100;
-
-    //player starts with
-    rucksack.add(Items.KEY);
-    rucksack.add(Items.FOOD);
+    getRucksack();
 
     dead = false;
+  }
+
+  private Rucksack getRucksack()
+  {
+    return rucksack;
   }
 
   public int getEnergy()
@@ -94,11 +94,6 @@ public class Player {
     score = score + amount;
   }
 
-  public void collectItem()
-  {
-    rucksack.add(item);
-  }
-
   /**
    * This checks to see if the player is dead
    */
@@ -119,7 +114,18 @@ public class Player {
 
   public String toString()
   {
-    return "Name: " + getName() + " Energy: " + getEnergy() + " Score: " + getScore();
+    return "Name: " + getName() + "\nEnergy: " + getEnergy() + "\nScore: " + getScore() + "\n Inventory: \n" + rucksack;
+  }
+
+  /**
+   *
+   */
+  public void print()
+  {
+    System.out.println("Player : " + name);
+    System.out.println();
+    System.out.println("Final Score: " + score);
+    System.out.println();
   }
 
 }

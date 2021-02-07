@@ -6,18 +6,27 @@ public class Rucksack
 {
     private ArrayList<Items> item;
     private Player player;
-    private int quantity;
-
 
     public Rucksack()
     {
        item = new ArrayList<Items>();
-       quantity = 0;
     }
 
     public ArrayList<Items> getItem()
     {
         return item;
+    }
+
+    public void addItem()
+    {
+        if (player.collectItem)
+        {
+            addItem();
+        }
+        else
+        {
+            System.out.println("nothing to add");
+        }
     }
 
     public void removeItem()

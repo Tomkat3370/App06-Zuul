@@ -6,6 +6,8 @@ import java.util.ArrayList;
  */
 public enum Items
 {
+        NONE("none"),
+
         FOOD("food"),
 
         TROPHY("trophy"),

@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 /**
  *  This class is the main class of the "World of Zuul" application. 
  *  "World of Zuul" is a very simple, text based adventure game.  Users 
@@ -58,10 +56,11 @@ public class Game
         while (! finished) 
         {
             Command command = parser.getCommand();
-            finished = processCommand(command);
+            finished = processCommand(command) && player.isDead();
         }
         
         System.out.println("Thank you for playing.  Good bye.");
+        player.print();
     }
 
     private void getPlayer()
@@ -164,25 +163,11 @@ public class Game
 
     private void collect(Command command)
     {
-        Items item = currentBrainArea.getItem();
-
-        if (command.hasSecondWord())
-        {
             player.increaseScore(20);
             player.increaseEnergy(10);
-            player.collectItem();
-            rucksack.addItem();
             currentBrainArea.removeItem();
             System.out.println("you have collected " + item);
             currentBrainArea.removeItem();
-        }
-        else
-        {
-
-            System.out.println("There is nothing here!");
-            player.decreaseEnergy(10);
-        }
-
     }
 
     private void use(Command command)
@@ -262,7 +247,7 @@ public class Game
         if(!command.hasSecondWord()) 
         {
             // if there is no second word, we don't know where to go...
-            System.out.println("Where would you like to GO?");
+            System.out.println("Where would you like to go?");
             return;
         }
 
@@ -282,6 +267,7 @@ public class Game
             player.increaseScore(20);
             System.out.println(currentBrainArea.getDescription());
             System.out.println(player.toString());
+            currentBrainArea.printSetItems();
         }
     }
 
@@ -313,4 +299,5 @@ public class Game
             return true;  // signal that we want to quit
         }
     }
+
 }
