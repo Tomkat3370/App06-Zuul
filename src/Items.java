@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Representations for all Items in the game.
  * Modified and extended by Kate Gordon and Sarah Cunningham

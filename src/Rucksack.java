@@ -4,35 +4,39 @@ import java.util.ArrayList;
  */
 public class Rucksack
 {
-      private final ArrayList<Items> item;
+    private ArrayList<Items> item;
+    private Player player;
+    private int quantity;
+
 
     public Rucksack()
     {
-        item = new ArrayList<>();
+       item = new ArrayList<Items>();
+       quantity = 0;
     }
 
-    public Items getItem()
+    public ArrayList<Items> getItem()
     {
-        return null;
-    }
-
-    void print()
-    {
-        System.out.println("Rucksack:/n" + item);
-    }
-
-    public void addItem()
-    {
-        getItem();
+        return item;
     }
 
     public void removeItem()
     {
-        this.item.remove(item);
+        if (player.dropItem && item != null)
+        {
+            removeItem();
+        }
+        else
+        {
+            System.out.println("Your rucksack is already empty!");
+        }
     }
 
     public void printInventory()
     {
-       System.out.println("Your rucksack contains" + item.toString());
+       System.out.println("Your rucksack contains: ");
+       System.out.println(item.toString());
     }
+
+
 }

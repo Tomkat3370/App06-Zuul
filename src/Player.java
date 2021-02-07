@@ -17,13 +17,14 @@ public class Player {
   public boolean dropItem;
   public boolean collectItem;
 
+
   private String name;
-  public int score;
-
-
-  private ArrayList <Items> item;
-  public int amount;
+  private int score;
   private boolean dead;
+  private Items item;
+
+ private ArrayList <Items> rucksack;
+
 
 
   public Player(String name)
@@ -31,6 +32,10 @@ public class Player {
     this.name = name;
     score = 0;
     energy = 100;
+
+    //player starts with
+    rucksack.add(Items.KEY);
+    rucksack.add(Items.FOOD);
 
     dead = false;
   }
@@ -71,6 +76,7 @@ public class Player {
     if(energy < MIN_ENERGY)
     {
       dead = true;
+      System.out.println("Game Over!!");
     }
   }
 
@@ -88,9 +94,9 @@ public class Player {
     score = score + amount;
   }
 
-  public ArrayList<Items> collectItem()
+  public void collectItem()
   {
-    return item;
+    rucksack.add(item);
   }
 
   /**
@@ -104,6 +110,11 @@ public class Player {
   public void setDead()
   {
     this.dead = true;
+  }
+
+  public void setRucksack()
+  {
+    this.rucksack = rucksack;
   }
 
   public String toString()
