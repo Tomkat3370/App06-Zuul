@@ -125,10 +125,6 @@ public class Game
                 wantToQuit = quit(command);
                 break;
 
-            case RESTART:
-                restart(command);
-                break;
-
             case COLLECT:
                 collect(command);
                 break;
@@ -300,23 +296,6 @@ public class Game
             System.out.println(currentBrainArea.getDescription());
             System.out.println(player.toString());
             currentBrainArea.printSetItems();
-        }
-    }
-
-    /**
-     * Method for the command restart
-     * @param command
-     */
-    private boolean restart(Command command)
-    {
-        if(command.hasSecondWord())
-        {
-            System.out.println("restart what?");
-            return false;
-        }
-        else
-        {
-            return true;  // signal that we want to restart the game
         }
     }
 
