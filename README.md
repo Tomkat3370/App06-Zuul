@@ -1,7 +1,8 @@
 # App06-Zuul
- A test copy of the Zuul game using IJ
+ A test copy of the Brain fog game using IJ
+ Based on the World of Zuul
  
  to be tried by:
- Derek Peacock and Andrei Cruceru
+ Kate Gordon and Sarah Cunningham
  
  
