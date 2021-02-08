@@ -1,6 +1,6 @@
 /**
- * This class is part of the "World of Zuul" application. 
- * "World of Zuul" is a very simple, text based adventure game.  
+ * This class is part of the "Brain fog" application.
+ * "Brain fog" is a very simple, text based adventure game.
  *
  * This class holds information about a command that was issued by the user.
  * A command currently consists of two parts: a CommandWord and a string
@@ -15,7 +15,9 @@
  * 
  * @author  Michael Kölling and David J. Barnes
  * @version 2016.02.29
+ *
  * Modified and extended by Kate Gordon and Sarah Cunningham
+ * Date 29/01/2021
  */
 
 public class Command

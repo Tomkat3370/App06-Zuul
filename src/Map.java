@@ -1,5 +1,9 @@
 /**
- *  Modified and extended by Kate Gordon and Sarah Cunningham
+ * This class creates the different brain areas within
+ * the map, for the application.
+ *
+ *  Author Kate Gordon and Sarah Cunningham
+ *  Date 29/01/2021
  */
 
 public class Map
@@ -22,7 +26,7 @@ public class Map
 
 
     /**
-     * Create all the primary rooms and link their exits together.
+     * Method to create all the brain areas and their descriptions
      */
     private void createRooms()
     {
@@ -70,6 +74,9 @@ public class Map
         startBrainArea = intracranialSpace;  // start game outside
     }
 
+    /**
+     *Method to initialise the exits of each brain area, linking them together.
+     */
     private void setExits()
     {
         intracranialSpace.setExit("forward", frontalLobe);
@@ -115,6 +122,10 @@ public class Map
         cerebellum.setExit("back", intracranialSpace);
     }
 
+    /**
+     * Method to set items that are pre-existing in the brain areas.
+     */
+
     private void setItems()
     {
         frontalLobe.setItem(Items.KEY);
@@ -150,6 +161,9 @@ public class Map
         cerebellum.setItem(Items.TROPHY);
     }
 
+    /**
+     * Method to create the starting point of the application.
+     */
     public BrainArea getStartRoom()
 
     {

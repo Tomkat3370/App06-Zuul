@@ -1,7 +1,7 @@
 /**
  *  This class is the main class of the "Brain Fog" application.
  *  "Brain Fog" is a very simple, text based adventure game.  Users
- *  can walk around inside the human brain and collect items. Making
+ *  can walk around inside the human brain and collect items, making
  *  their way to the cerebellum to get the trophy and win the game
  * 
  *  To play this game, create an instance of this class and call the "play"
@@ -15,6 +15,7 @@
  * @version 2016.02.29
  * 
  * Modified and extended by Kate Gordon and Sarah Cunningham
+ * Date 29/01/2021
  */
 
 public class Game 
@@ -23,9 +24,6 @@ public class Game
     private BrainArea currentBrainArea;
     private Map map;
     private Player player;
-    private Rucksack rucksack;
-
-
     private Items item;
 
     /**
@@ -57,13 +55,22 @@ public class Game
         while (! finished) 
         {
             Command command = parser.getCommand();
-            finished = processCommand(command) && player.isDead();
+            finished = processCommand(command);
+
+            if (player.isDead())
+            {
+                System.out.println("GAME OVER");
+                finished = true;
+            }
         }
         
         System.out.println("Thank you for playing.  Good bye.");
         player.print();
     }
 
+    /**
+     * method to initialise player
+     */
     private void getPlayer()
     {
         String name = parser.getString("Please enter your name >") ;
@@ -77,7 +84,7 @@ public class Game
     {
         System.out.println();
         System.out.println(player.getName() + " Welcome to BrainFog!");
-        System.out.println("BrainFog is a new, incredibly boring adventure game.");
+        System.out.println("BrainFog is a new, text orientated adventure game.");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(player.toString());
@@ -138,11 +145,19 @@ public class Game
         return wantToQuit;
     }
 
+    /**
+     * Method for the command inventory
+     * @param command
+     */
     private void inventory(Command command)
     {
         System.out.println(player.showInventory());
     }
 
+    /**
+     * Method for the command collect
+     * @param command
+     */
     private void collect(Command command)
     {
         item = currentBrainArea.getItem();
@@ -165,59 +180,72 @@ public class Game
             player.increaseScore(20);
             System.out.println("You have collected " + item);
         }
+
+        player.showInventory();
     }
 
+    /**
+     * Method for the command use
+     * @param command
+     */
     private void use(Command command)
     {
+        player.showInventory();
+
         if (player.isCarrying(Items.NONE))
         {
             System.out.println(" you are carrying nothing!");
             player.showInventory();
-            System.out.println(player.toString() + player.showInventory());
+            System.out.println(player.toString());
         }
         else if (player.isCarrying(Items.FOOD))
         {
             player.increaseEnergy(20);
             player.increaseScore(10);
             System.out.println("You ate food, increasing your energy by 20");
-            player.removeItem();
-            System.out.println(player.toString() + player.showInventory());
+            player.removeItem(item);
+            System.out.println(player.toString());
         }
         else if (player.isCarrying(Items.VODKA))
         {
             player.decreaseEnergy(15);
             System.out.println("You drank vodka, decreasing your energy by 15");
-            player.removeItem();
-            System.out.println(player.toString() + player.showInventory());
+            player.removeItem(item);
+            System.out.println(player.toString());
         }
         else if (player.isCarrying(Items.BOOBY_TRAP))
         {
             player.decreaseEnergy(25);
             System.out.println("You fell in a booby-trap, decreasing your energy by 25");
-            player.removeItem();
-            System.out.println(player.toString() + player.showInventory());
+            player.removeItem(item);
+            System.out.println(player.toString());
         }
         else if (player.isCarrying(Items.KEY))
         {
             player.increaseScore(50);
             System.out.println("You have unlocked the next Brain Area ");
             System.out.println("and increased your score by 50");
-            player.removeItem();
-            System.out.println(player.toString() + player.showInventory());
+            player.removeItem(item);
+            System.out.println(player.toString());
         }
         else if (player.isCarrying(Items.TROPHY))
         {
             player.increaseScore(1000);
             System.out.println("Congratulations You WIN!!!");
-            System.out.println(player.toString() + player.showInventory());
+            System.out.println(player.toString());
         }
         else
         {
             System.out.println("What would you like to use?");
-            System.out.println(player.toString() + player.showInventory());
+            System.out.println(player.toString());
+            System.out.println(player.showInventory());
         }
     }
 
+    /**
+     * Method for the command look
+     * @param command
+     */
     private void look(Command command)
     {
         System.out.println("You have found " + currentBrainArea.getItem());
@@ -230,16 +258,16 @@ public class Game
      */
     private void printHelp() 
     {
-        System.out.println("You are in" + currentBrainArea.getDescription());
         System.out.println("your goal is to collect all the keys");
         System.out.println("scattered throughout the brain ");
         System.out.println("then make your way to the Cerebellum.");
-        System.out.println("The directions you can go in from here are: "
-                + currentBrainArea.getExit());
-        System.out.println(player.toString());
+        System.out.println();
+        System.out.println("You are in" + currentBrainArea.getDescription());
         System.out.println();
         System.out.println("Your command words are:");
         parser.showCommands();
+        System.out.println();
+        System.out.println(player.toString());
     }
 
     /** 
@@ -275,6 +303,10 @@ public class Game
         }
     }
 
+    /**
+     * Method for the command restart
+     * @param command
+     */
     private boolean restart(Command command)
     {
         if(command.hasSecondWord())
@@ -299,7 +331,8 @@ public class Game
             System.out.println("Quit what?");
             return false;
         }
-        else {
+        else
+        {
             return true;  // signal that we want to quit
         }
     }

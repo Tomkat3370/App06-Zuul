@@ -4,7 +4,9 @@
  * 
  * @author  Michael Kölling and David J. Barnes
  * @version 2016.02.29
+ *
  * Modified and extended by Kate Gordon and Sarah Cunningham
+ * 29/01/2021
  */
 public enum CommandWord
 {
